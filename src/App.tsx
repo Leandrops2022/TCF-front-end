@@ -1,11 +1,10 @@
-import './App.css'
-import Header from './components/Header'
+import MyRouter from './routes';
 
 function App() {
 
-    return (
-        <Header />
-    )
+	return (
+		<MyRouter />
+	)
 }
 
 export default App

@@ -1,6 +1,9 @@
-import { StyledButton, StyledHeader, StyledLogoDiv, StyledMenuButtonDiv, StyledMenuDiv, StyledMenuItem, StyledMenuList, StyledP, StyledSearchDiv } from "./styles";
+import { StyledButton, StyledHeader, StyledLogo, StyledLogoDiv, StyledMenuButtonDiv, StyledMenuDiv, StyledMenuItem, StyledMenuList, StyledP, StyledSearchDiv } from "./styles";
 import { menu } from "./menu";
 import { useRef } from "react";
+import TCFLogo from "../../assets/logos/TCFLogoSite.svg";
+import { Link } from "react-router-dom";
+import MenuButton from "../../assets/icons/menu.svg";
 
 const Header = () => {
     const menuListRef = useRef<HTMLUListElement>(null);
@@ -12,20 +15,25 @@ const Header = () => {
                 'none' : 'block'
         }
     }
-    return (
+    return <>
         <StyledHeader>
-            <StyledLogoDiv></StyledLogoDiv>
+            <StyledLogoDiv>
+                <Link to={'/'}>
+                    <StyledLogo src={TCFLogo} /></Link>
+            </StyledLogoDiv>
             <StyledSearchDiv></StyledSearchDiv>
             <StyledMenuDiv>
                 <StyledMenuButtonDiv>
-                    <StyledButton onClick={showMenu} type="button">Menu</StyledButton>
+                    <StyledButton onClick={showMenu} type="button"><img src={MenuButton} /></StyledButton>
                 </StyledMenuButtonDiv>
-                <StyledMenuList ref={menuListRef}>
-                    {menu.map(item => (<StyledMenuItem key={item.route}><StyledP>{item.route}</StyledP></StyledMenuItem>))}
-                </StyledMenuList>
             </StyledMenuDiv>
         </StyledHeader>
-    )
+        <StyledMenuList ref={menuListRef}>
+            {menu.map(item => (<StyledMenuItem key={item.route}><StyledP>{item.route}</StyledP></StyledMenuItem>))}
+        </StyledMenuList>
+    </>
+
+
 
 }
 

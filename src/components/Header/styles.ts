@@ -2,27 +2,25 @@ import styled from "styled-components";
 
 export const StyledHeader = styled.header`
     background-color: black;
-    width:100%;
-    height:15vh;
+    width: 99.1%;
+    height:fit-content;
+    padding: 0.5rem;
     display:grid;
-    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-columns: 1fr 13fr 1fr;
 
-    @media (max-width: 480px) {
-        background-color: green;
-        padding: 10px;
-    }
 `;
 
 export const StyledLogoDiv = styled.div`
-       border:1px solid red;
-       overflow-y:hidden;
-
+    width:fit-content;
+    @media (max-width: 900px) {
+        display:flex;
+        flex-direction:row;
+        width:100px;
+    }
 `;
 
 export const StyledSearchDiv = styled.div`
-    border:1px solid red;
     overflow-y:hidden;
-
 `;
 
 export const StyledMenuDiv = styled.div`
@@ -41,11 +39,12 @@ export const StyledMenuList = styled.ul`
     list-style:none;
     display:none; 
     z-index:9999;  
-    position:absolute;
     background-color:black;
-    min-width:100%;
     width: fit-content;
-    top: 15vh;
+    padding:0 5rem;
+    position:absolute;
+    right:0;
+    border-radius: 0 0 0 10px;
 `;
 
 export const StyledMenuItem = styled.li`
@@ -60,15 +59,20 @@ export const StyledP = styled.p`
 
 export const StyledMenuButtonDiv = styled.div`
     display: flex;
-    border:1px solid red;
     justify-content:flex-end;
     height: 100%;
     padding: .5rem;
+    @media (max-width: 900px) {
+        display:flex;
+        flex-direction:row;
+        width: 50px;
+        padding:1rem;
+    }
 `;
 
 export const StyledButton = styled.button`
-    height:10vh;
-    width:5vw;
+   width:50px;
+   height:50px;
     align-self: center;
     border-radius:8px;
     &:hover {
@@ -76,5 +80,17 @@ export const StyledButton = styled.button`
     }
     &:active {
         box-shadow: inset -2px -2px 4px black;
+    }
+    @media (max-width: 900px) {
+        width:50px;
+        height:50px;
+        align-self:center;
+    }
+`;
+
+export const StyledLogo = styled.img`
+    height:100%;
+    @media (max-width: 900px) {
+        width:100px;
     }
 `;
