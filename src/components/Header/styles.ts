@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const StyledHeader = styled.header`
     background-color: black;
-    width: 99.1%;
+    width: 98.8%;
     height:fit-content;
-    padding: 0.5rem;
+    padding: 0.8rem 0.5rem;
     display:grid;
     grid-template-columns: 1fr 13fr 1fr;
 
@@ -21,6 +21,11 @@ export const StyledLogoDiv = styled.div`
 
 export const StyledSearchDiv = styled.div`
     overflow-y:hidden;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-end;
+    padding-bottom:0.3rem;
 `;
 
 export const StyledMenuDiv = styled.div`

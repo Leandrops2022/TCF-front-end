@@ -4,6 +4,7 @@ import { useRef } from "react";
 import TCFLogo from "../../assets/logos/TCFLogoSite.svg";
 import { Link } from "react-router-dom";
 import MenuButton from "../../assets/icons/menu.svg";
+import SearchBar from "./components/SearchBar";
 
 const Header = () => {
     const menuListRef = useRef<HTMLUListElement>(null);
@@ -21,7 +22,9 @@ const Header = () => {
                 <Link to={'/'}>
                     <StyledLogo src={TCFLogo} /></Link>
             </StyledLogoDiv>
-            <StyledSearchDiv></StyledSearchDiv>
+            <StyledSearchDiv>
+                <SearchBar />
+            </StyledSearchDiv>
             <StyledMenuDiv>
                 <StyledMenuButtonDiv>
                     <StyledButton onClick={showMenu} type="button"><img src={MenuButton} /></StyledButton>
