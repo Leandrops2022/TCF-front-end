@@ -1,12 +1,17 @@
 import { Outlet } from "react-router-dom"
-import Header from "../Header";
+import { StyledDiv } from "./styles";
+import { useContext } from "react";
+import { MyContext } from "../../MyContext";
 
 const Main = (): JSX.Element => {
+    const { showingMenu, showMenu, hideMenu } = useContext(MyContext);
+
     return (
-        <div>
-            <Header />
+        <StyledDiv onClick={() => {
+            showingMenu ? hideMenu() : '';
+        }}>
             <Outlet />
-        </div>
+        </StyledDiv>
     )
 }
 
