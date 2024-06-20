@@ -10,12 +10,10 @@ const MyContextProvider: React.FC<MyContextProviderProps> = ({ children }) => {
 
     const showMenu = () => {
         setShowingMenu(true)
-        console.log(showingMenu);
     }
 
     const hideMenu = () => {
         setShowingMenu(false)
-        console.log(showingMenu);
 
     }
 

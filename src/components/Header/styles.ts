@@ -8,6 +8,15 @@ export const StyledHeader = styled.header`
     padding: 0.8rem 0.5rem;
     display:grid;
     grid-template-columns: 1fr 13fr 1fr;
+    position: relative;
+
+    @media screen and (max-width: 900px) {
+        display:block;
+        width:97%;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3,1fr);
+        padding: 0.8rem 0.5rem 0 0.5rem;
+    }
 `;
 
 export const StyledLogoDiv = styled.div`
@@ -15,7 +24,14 @@ export const StyledLogoDiv = styled.div`
     @media (max-width: 900px) {
         display:flex;
         flex-direction:row;
-        width:100px;
+        margin-left: 2rem;
+    }
+`;
+
+export const StyledLogo = styled.img`
+    height:100%;
+    @media (max-width: 900px) {
+        width:200px;
     }
 `;
 
@@ -26,6 +42,10 @@ export const StyledSearchDiv = styled.div`
     align-items:center;
     justify-content:flex-end;
     padding-bottom:0.3rem;
+    @media screen and (max-width:900px) {
+        margin-top:2rem;
+        padding-bottom:2rem;
+    }
 `;
 
 export const StyledMenuDiv = styled.div`
@@ -35,31 +55,96 @@ export const StyledMenuDiv = styled.div`
     gap: .5rem;
     color: white;
     position: relative;
+
+    @media screen and (max-width:900px) {
+        position: absolute;
+        top:0;
+        right:0;
+    }
 `;
 
-export const StyledMenuList = styled.ul`
+export const StyledBlackSeparator = styled.div`
     display:flex;
     flex-direction:column;
     list-style:none;
-    /* display:none;  */
     z-index:9999;  
     background-color:black;
-    width: fit-content;
-    padding:0 2rem;
+    height: 100%;
+    padding: 1rem 0;
+    width: 17vw;
     position:fixed;
-    
     right:0;
     border-radius: 0 0 0 10px;
+
+    @media screen and (max-width:900px) {
+        width:100%;
+        padding: 0;
+        height: 100%;
+        min-width: 98%;
+        position:absolute;
+        left:0;
+        right:unset;
+
+    }
+`;
+export const StyledCloseButton = styled.button`
+    background-color:transparent;
+    padding:0;
+    border: none;
+    color:#BA4947;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    position: fixed;
+    right:1rem;
+    &:hover {
+        cursor: pointer;
+    }
+    @media screen and (max-width: 900px) {
+        right:2rem;
+        top: 1rem;
+        position: absolute;
+        z-index:99999999;
+    }
+`;
+
+export const StyledMenuList = styled.ul`
+    display: flex;
+    flex-direction:column;
+    background-color:#181818;
+    border-radius: 8px;
+    width:95%;
+    justify-self:center;
+    box-sizing: border-box;
+    padding: 1rem;
+    margin:4.7rem auto 0 auto;
+    border-bottom: 2px solid gray;
+    border-right: 1px solid gray;
+    
+    @media screen and (max-width:900px) {
+        width:99%;
+        padding:2rem;
+        box-sizing:border-box;
+        align-items: flex-start;
+        height: 99.9%;
+        min-width: 98%;
+        position:absolute;
+        left:0;
+        right:unset;
+        margin:0 auto 0 auto;
+    }
 `;
 
 export const StyledMenuItem = styled.li`
    padding: 1rem 0;
    display:flex;
    justify-content:flex-start;
+   border-radius:5px;
+  
+   width: 90%
 `;
 
 export const StyledP = styled.p`
-    color:yellow;
+    color: var(--primary-text-color);
     font-size:1.2rem;
     text-align: left;
 `;
@@ -96,13 +181,6 @@ export const StyledButton = styled.button`
     }
 `;
 
-export const StyledLogo = styled.img`
-    height:100%;
-    @media (max-width: 900px) {
-        width:100px;
-    }
-`;
-
 export const StyledLink = styled(Link)`
     text-decoration: none;
     display:flex;
@@ -115,3 +193,4 @@ export const StyledIcon = styled.img`
     width:30px;
     height:30px;
 `;
+

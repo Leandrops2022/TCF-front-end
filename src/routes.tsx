@@ -5,7 +5,10 @@ import { GlobalStyles } from "./components/GlobalStyle/GlobalStyle";
 import Top100 from "./components/Top100";
 import Header from "./components/Header";
 import MyContextProvider from "./MyContextProvider";
-import { DivFilha, DivPai } from "./styles";
+import { ContainerDiv, InnerContainerDiv } from "./styles";
+import Article from "./components/Article";
+import { Minilist } from "./components/Minilist";
+import { PageNews } from "./components/PageNews";
 
 const MyRouter = (): React.JSX.Element => {
     return (
@@ -14,17 +17,20 @@ const MyRouter = (): React.JSX.Element => {
 
             <MyContextProvider>
 
-                <DivPai>
+                <ContainerDiv>
                     <Header />
-                    <DivFilha>
+                    <InnerContainerDiv>
                         <Routes>
                             <Route path='/' element={<Main />}>
                                 <Route index element={<Home />} />
                                 <Route path="/top100" element={<Top100 />} />
+                                <Route path="/artigo" element={<Article />} />
+                                <Route path="/minilista" element={<Minilist />} />
+                                <Route path="/noticia" element={<PageNews />} />
                             </Route>
                         </Routes>
-                    </DivFilha>
-                </DivPai>
+                    </InnerContainerDiv>
+                </ContainerDiv>
             </MyContextProvider>
 
         </BrowserRouter>

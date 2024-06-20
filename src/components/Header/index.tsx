@@ -1,5 +1,7 @@
 import {
+    StyledBlackSeparator,
     StyledButton,
+    StyledCloseButton,
     StyledHeader,
     StyledIcon,
     StyledLink,
@@ -44,18 +46,27 @@ const Header = () => {
 
         </StyledHeader>
 
-        <StyledMenuList style={{ display: showingMenu ? 'block' : 'none' }}>
-            {menu.map(item => (
+        <StyledBlackSeparator style={{ display: showingMenu ? 'block' : 'none' }}>
+            <StyledCloseButton onClick={hideMenu}>X</StyledCloseButton>
 
-                <StyledMenuItem key={item.route}>
-                    <StyledLink to={item.link} >
-                        <StyledIcon src={item.icon} />
-                        <StyledP>{item.route}</StyledP>
-                    </StyledLink>
-                </StyledMenuItem>
+            <StyledMenuList >
 
-            ))}
-        </StyledMenuList>
+                {menu.map(item => (
+
+                    <StyledMenuItem key={item.route} onClick={hideMenu}>
+
+                        <StyledLink to={item.link} >
+                            <StyledIcon src={item.icon} />
+                            <StyledP>{item.route}</StyledP>
+                        </StyledLink>
+
+                    </StyledMenuItem>
+
+                ))}
+
+            </StyledMenuList>
+        </StyledBlackSeparator>
+
     </>
 
 
