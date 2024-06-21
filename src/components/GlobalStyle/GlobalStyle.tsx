@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, keyframes } from "styled-components";
 import RobotoFont from "../../assets/fonts/Roboto/Roboto-Medium.ttf";
 
 export const GlobalStyles = createGlobalStyle`
@@ -37,4 +37,56 @@ export const GlobalStyles = createGlobalStyle`
         background-color: var(--background-color);
     }
 
+    p{
+      line-height:1.1rem;
+      padding: .3rem 0; 
+    }
+
+    h1 {
+      font-size:2rem;
+      @media screen and (max-width:900px) {
+        font-size:1.5rem;
+
+      }
+    }
+
+    h2{
+      font-size:1.8rem;
+      @media screen and (max-width:900px) {
+        font-size:1.4rem;
+
+      }
+    }
+
+    h3 {
+      font-size:1.6rem;
+      padding: 1rem 0;
+      @media screen and (max-width:900px) {
+        font-size:1.3rem;
+      }
+    }
+
+    
+
 `
+
+export const pulseAnimation = keyframes`
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.2;
+  }
+`;
+
+export const shimmerAnimation = keyframes`
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: 200px 0;
+  }
+`;

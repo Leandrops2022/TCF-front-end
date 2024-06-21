@@ -9,9 +9,9 @@ export const HighlightMainDiv = styled.div`
     grid-column-gap: 1rem;
     @media screen and (max-width: 900px) {
         height:fit-content;
-        gap:3rem;
+        gap:1rem;
         border-radius: 8px;
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
         grid-template-rows: auto;
     }
 `;
@@ -43,11 +43,18 @@ export const HilightLegendDiv = styled.div`
   box-sizing: border-box;
   display: flex;
   align-items:center;
+  @media screen and (max-width: 900px) {
+    min-height: 2rem;
+    height: fit-content;
+  }
 `;
 
 export const HilightLegendText = styled.p`
     color:#F0F0F0F0;  
-    font-size: 1.2rem        
+    font-size: 1.2rem;
+    @media screen and (max-width: 900px) {
+    font-size: .7rem;
+  }        
 `;
 
 export const HighlightTag = styled.div`
@@ -59,13 +66,20 @@ export const HighlightTag = styled.div`
   right:0;
   display: flex;
   align-items: center;
-  justify-content:center
+  justify-content:center;
+  @media screen and (max-width: 900px) {
+    height:1.8rem;
+    width: 3rem;
+  }
 `;
 
 export const HighlightTagText = styled.span`
   color: #1db11d;
   font-size: 1.1rem;
   font-weight: bold;
+  @media screen and (max-width: 900px) {
+    font-size: .7rem;
+  }
 `;
 
 
@@ -98,10 +112,11 @@ export const SkeletonItem = styled.div`
   background-size: 200px 100%; 
   border-radius: 4px;
   animation: ${pulseAnimation} 1.7s infinite alternate, ${shimmerAnimation} 1.7s ease-in-out infinite; 
- 
+  border-left: 2px solid #f0f0f0;
+  position:relative;
 
   @media screen and (max-width: 900px) {
-    width: 100%;
-    height: 20vh;
+    width: 40vw;
+    height: 17vh;
   }
 `;

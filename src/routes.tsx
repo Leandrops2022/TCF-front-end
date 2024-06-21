@@ -7,7 +7,7 @@ import Header from "./components/Header";
 import MyContextProvider from "./MyContextProvider";
 import { ContainerDiv, InnerContainerDiv } from "./styles";
 import Article from "./components/Article";
-import { Minilist } from "./components/Minilist";
+// import { Minilist } from "./components/Minilist";
 import { PageNews } from "./components/PageNews";
 
 const MyRouter = (): React.JSX.Element => {
@@ -25,7 +25,7 @@ const MyRouter = (): React.JSX.Element => {
                                 <Route index element={<Home />} />
                                 <Route path="/top100" element={<Top100 />} />
                                 <Route path="/artigo" element={<Article />} />
-                                <Route path="/minilista" element={<Minilist />} />
+                                <Route path="/minilista" element={<Article />} />
                                 <Route path="/noticia" element={<PageNews />} />
                             </Route>
                         </Routes>
