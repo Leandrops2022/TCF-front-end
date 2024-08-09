@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Styledlink = styled(Link)`
   color:silver;
   text-decoration:none;
-  width:100%
+  width:fit-content
 `
 
 export const MovieItem = styled.div`
@@ -30,7 +30,7 @@ export const MovieItem = styled.div`
     cursor: pointer;
   }
   @media screen and (max-width: 1000px) {
-    width: 97vw;
+    width: 95vw;
   }
 `;
 
@@ -52,6 +52,7 @@ export const InnerContent = styled.div`
   display: flex;
   flex-direction:row;
   padding: 2.5rem 0.5rem;
+  border:1px solid green;
   @media screen and (max-width: 1000px) {
     padding: 1.4rem 0.5rem;
   }
@@ -84,6 +85,7 @@ export const FilmeItemTextos = styled.div`
   height: 100%;
   line-height: 5vh;
   overflow: hidden;
+  
 `;
 
 // Ranking and rating section
@@ -92,9 +94,12 @@ export const RankingENota = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top:2rem;
   font-family: 'Roboto', sans-serif;
   @media screen and (max-width: 1000px){
     font-size:1rem;
+    margin-top:1rem;
+
   }
 `;
 
@@ -105,6 +110,10 @@ export const TituloAnoDuracao = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
+@media screen and (max-width: 1000px) {
+  line-height:25px;
+  gap:0.5rem;
+}
 `;
 
 // "Assisted" SVG icon

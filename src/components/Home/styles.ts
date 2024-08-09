@@ -16,6 +16,10 @@ export const MidContentDiv = styled.div`
     justify-content:space-around;
     height:auto;
     width: 100%;
+    @media screen and (max-width: 900px) {
+        display: flex;
+    flex-direction:column;
+    }
 `;
 
 export const StyledLink = styled(Link)`

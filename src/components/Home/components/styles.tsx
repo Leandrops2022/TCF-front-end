@@ -11,10 +11,17 @@ export const MainDiv = styled.div`
         box-shadow: 5px 5px 18px black;
         z-index:999;
     }
+
+    @media screen and (max-width: 900px) {
+        margin: 0.5rem auto;
+    }
 `;
 
 export const CardCover = styled.img`
     height:40vh;
+    @media screen and (max-width: 900px) {
+        height:22vh;
+    }
 `
 
 export const CardLegendDiv = styled.div`
@@ -25,4 +32,8 @@ export const CardLegendDiv = styled.div`
     background-color: rgba(0,0,0,0.5);
     text-align:center;
     font-size:1.4rem;
+
+    @media screen and (max-width: 900px) {
+        font-size: 1rem;
+    }
 `

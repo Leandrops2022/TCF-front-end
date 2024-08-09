@@ -1,8 +1,21 @@
 import styled from "styled-components";
 
+export const MainContentDiv = styled.div`
+    display:flex;
+    flex-direction:column;
+    width:80vw;
+    margin: 1rem auto 20rem auto;
+    @media screen and (max-width: 1000px) {
+        width: 96vw;
+    }
+`;
+
 export const CoverDiv = styled.div`
-    width: 90vw;
-    margin:2rem 0;
+    width: 70%;
+    margin: 0 0 3rem 0;   
+    @media screen and (max-width: 1000px) {
+        width: 100%;
+    }
 `;
 
 export const CoverImg = styled.img`
@@ -11,7 +24,15 @@ width: 100%;
 
 export const TextContentDiv = styled.div`
     margin: 2rem 0;
+    width:100%;
+    margin:0 auto;
+    margin-bottom: 3rem;
 `;
+
+export const Title = styled.h1`
+    width:100%;
+    margin:2rem auto;
+`
 
 export const PaginationDiv = styled.div`
     display:flex;

@@ -29,9 +29,17 @@ export const StyledLogoDiv = styled.div`
 `;
 
 export const StyledLogo = styled.img`
-    height:100%;
-    @media (max-width: 900px) {
-        width:200px;
+    
+    @media screen and (max-width: 600px) {
+        width:45vw;
+    }
+
+    @media screen and (min-width: 601px) and (max-width: 900px) {
+        width:40vw;
+    }
+
+    @media screen and (min-width: 901px) {
+        width:15vw;
     }
 `;
 
@@ -155,24 +163,24 @@ export const StyledP = styled.p`
 
 export const StyledMenuButtonDiv = styled.div`
     display: flex;
-    justify-content:flex-end;
-    height: 100%;
+    justify-content:center;
+    height: fit-content;
+    width:fit-content;
     padding: .5rem;
     @media (max-width: 900px) {
         display:flex;
         flex-direction:row;
-        width: 50px;
-        padding:1rem;
     }
 `;
 
 export const StyledButton = styled.button`
-   width:50px;
-   height:50px;
-   border:none;
-   background-color:transparent;
+    width:50px;
+    height:50px;
+    border:none;
+    background-color:transparent;
     align-self: center;
     border-radius:8px;
+
     &:hover {
         cursor: pointer;
     }
@@ -184,6 +192,7 @@ export const StyledButton = styled.button`
         height:35px;
         border:none;
         align-self:center;
+        
     }
 `;
 

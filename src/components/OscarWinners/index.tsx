@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { MyContext } from '../../MyContext';
+import { ArticleContainer, CoverContainer, CoverImg, MainContainer, StyledIframe } from './styles';
 
 const OscarWinners = () => {
 
@@ -49,14 +50,14 @@ const OscarWinners = () => {
     ];
 
     return (
-        <div>
-            <div>
-                <img src={basePageUrl + '/assets/indicados-oscar-2024/oscars.webp'}
+        <MainContainer>
+            <CoverContainer>
+                <CoverImg src={basePageUrl + '/assets/indicados-oscar-2024/oscars.webp'}
                     alt="Estatuetas do Oscar enfileiradas em um pedestal" />
                 <span>Getty images</span>
-            </div>
+            </CoverContainer>
 
-            <div>
+            <ArticleContainer>
                 <h1>Confira quem foram os ganhadores do Oscar 2024!</h1>
                 <span>(atualizado em 11/03/2024 por Leandro Soares)</span>
                 <br />
@@ -86,11 +87,11 @@ const OscarWinners = () => {
                     John Cena ter apresentado o ganhador de melhor figurino, sem usar um figurino 😂🤣, confira:
                 </p>
                 <br />
-                <iframe width="560" height="315"
+                <StyledIframe
                     src="https://www.youtube.com/embed/-MEi5V-7k7c?si=kOkIyojGOFx2Yu72" title="YouTube video player"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen></iframe>
+                    allowFullScreen></StyledIframe>
 
                 <br />
                 <p>
@@ -102,12 +103,12 @@ const OscarWinners = () => {
                 {winnersList.map((winner, index) => (
                     <span key={index}>{winner}</span>
                 ))}
-            </div>
+            </ArticleContainer>
 
             <div id="disqus_thread"></div>
 
             <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        </div>
+        </MainContainer>
     );
 };
 
