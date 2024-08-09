@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const StyledHeader = styled.header`
     background-color: black;
-    width: 99.15%;
+    width: auto;
     height:fit-content;
     padding: 0.8rem 0.5rem;
     display:grid;
@@ -55,6 +55,7 @@ export const StyledMenuDiv = styled.div`
     gap: .5rem;
     color: white;
     position: relative;
+    
 
     @media screen and (max-width:900px) {
         position: absolute;
@@ -71,7 +72,7 @@ export const StyledBlackSeparator = styled.div`
     background-color:black;
     height: 100%;
     padding: 1rem 0;
-    width: 17vw;
+    width: 21vw;
     position:fixed;
     right:0;
     border-radius: 0 0 0 10px;
@@ -113,10 +114,11 @@ export const StyledMenuList = styled.ul`
     background-color:#181818;
     border-radius: 8px;
     width:95%;
+    height: 97%;
     justify-self:center;
     box-sizing: border-box;
     padding: 1rem;
-    margin:4.7rem auto 0 auto;
+    margin:0 auto 0 auto;
     border-bottom: 2px solid gray;
     border-right: 1px solid gray;
     
@@ -135,12 +137,14 @@ export const StyledMenuList = styled.ul`
 `;
 
 export const StyledMenuItem = styled.li`
-   padding: 1rem 0;
+   padding: 0.8rem 0;
    display:flex;
    justify-content:flex-start;
    border-radius:5px;
-  
-   width: 90%
+   &:hover {
+    background-color: gray
+   }
+   width: 100%
 `;
 
 export const StyledP = styled.p`
@@ -165,6 +169,7 @@ export const StyledMenuButtonDiv = styled.div`
 export const StyledButton = styled.button`
    width:50px;
    height:50px;
+   border:none;
    background-color:transparent;
     align-self: center;
     border-radius:8px;
@@ -175,8 +180,9 @@ export const StyledButton = styled.button`
         box-shadow: inset -2px -2px 4px black;
     }
     @media (max-width: 900px) {
-        width:50px;
-        height:50px;
+        width:35px;
+        height:35px;
+        border:none;
         align-self:center;
     }
 `;

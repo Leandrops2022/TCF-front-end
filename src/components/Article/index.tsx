@@ -1,9 +1,10 @@
 import { useLocation } from "react-router-dom";
 import HighLightsComponent from "../HightLightsComponent";
 import { ArticleContentDiv, ArticleCoverImage, ArticleSkeletonDiv, Container, Content, MainArticleDiv, StyledSideDiv, StyledSideTitle } from "./styles";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import ArticleContentInterface from "../../Interfaces/ArticleContentInterface";
+import { MyContext } from "../../MyContext";
 
 const useQuery = () => {
     let slug = new URLSearchParams(useLocation().search).get('slug');
@@ -19,11 +20,10 @@ const Article: React.FC = () => {
 
     const data = useQuery();
 
-    const basePageUrl = "https://top100filmes.com.br/";
+    const { basePageUrl } = useContext(MyContext);
 
     useEffect(() => {
         let url = `http://localhost:8000/api${data.rota}/show/${data.slug}`;
-        console.log(url);
 
         const fetchData = async () => {
             try {
@@ -48,20 +48,6 @@ const Article: React.FC = () => {
 
     return (
         <MainArticleDiv>
-
-            {/* <StyleSideDiv>
-                <StyledSideTitle>
-                    Veja também
-                </StyledSideTitle>
-                <HighLightsComponent
-                    urlToFetch={'http://localhost:8000/api/page/sugestoesDeArtigos'}
-                    cardsQuantity={4}
-                    gridConfig={{
-                        columns: 1,
-                        rows: 4
-                    }}
-                />
-            </StyleSideDiv> */}
 
             {articleContent?.texto ?
                 (<ArticleContentDiv>

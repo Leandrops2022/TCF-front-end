@@ -2,6 +2,7 @@ import styled, { keyframes } from "styled-components";
 
 export const HighlightMainDiv = styled.div`
     display:grid;
+    width:99%;
     grid-template-columns: repeat(var(--columns, 1), 1fr);
     grid-template-rows: repeat(var(--rows, 1), auto);
     height: fit-content;
@@ -24,7 +25,11 @@ export const HilightItem = styled.div`
   border-radius: 4px;
   border-left: 2px solid #f0f0f0;
   position:relative;
-  
+  &:hover {
+    scale:1.1;
+    z-index: 999;
+    box-shadow: 5px 7px 15px black;
+  }
 
   @media screen and (max-width: 900px) {
     width: 100%;
@@ -51,7 +56,8 @@ export const HilightLegendDiv = styled.div`
 
 export const HilightLegendText = styled.p`
     color:#F0F0F0F0;  
-    font-size: 1.2rem;
+    font-size: 1rem;
+    font-weight:thin;
     @media screen and (max-width: 900px) {
     font-size: .7rem;
   }        
@@ -59,8 +65,8 @@ export const HilightLegendText = styled.p`
 
 export const HighlightTag = styled.div`
   background-color: rgba(0,0,0,0.9);
-  height:3rem;
-  width: 7rem;
+  height:2rem;
+  width: 4rem;
   position:absolute;
   top:0;
   right:0;
@@ -75,8 +81,8 @@ export const HighlightTag = styled.div`
 
 export const HighlightTagText = styled.span`
   color: #1db11d;
-  font-size: 1.1rem;
-  font-weight: bold;
+  font-size: 0.8rem;
+  font-weight: thin;
   @media screen and (max-width: 900px) {
     font-size: .7rem;
   }

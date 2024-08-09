@@ -44,6 +44,7 @@ export const GlobalStyles = createGlobalStyle`
 
     h1 {
       font-size:2rem;
+      margin:1.5rem 0;
       @media screen and (max-width:900px) {
         font-size:1.5rem;
 
@@ -53,8 +54,8 @@ export const GlobalStyles = createGlobalStyle`
     h2{
       font-size:1.8rem;
       @media screen and (max-width:900px) {
-        font-size:1.4rem;
-
+        font-size:1.2rem;
+        padding: 0;
       }
     }
 
@@ -62,7 +63,17 @@ export const GlobalStyles = createGlobalStyle`
       font-size:1.6rem;
       padding: 1rem 0;
       @media screen and (max-width:900px) {
-        font-size:1.3rem;
+        font-size:1rem;
+        padding: 0;
+      }
+    }
+
+    h5 {
+      font-size:1.3rem;
+      padding: 1rem 0;
+      @media screen and (max-width:900px) {
+        font-size:0.8rem;
+        padding: 0;
       }
     }
 

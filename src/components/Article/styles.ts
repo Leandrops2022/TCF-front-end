@@ -42,6 +42,7 @@ export const ArticleContentDiv = styled.div`
     gap:1rem;
     margin-bottom: 2rem;
     position:relative;
+    
 `;
 
 export const ArticleSkeletonDiv = styled.div`
@@ -74,11 +75,13 @@ export const ArticleCoverImage = styled.img`
 
 export const Container = styled.div`
   width: 100%;
+  
 `;
 
 export const Content = styled.div`
   img {
     max-width: 100%;
     height: auto;
+    
   }
 `;

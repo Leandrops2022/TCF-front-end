@@ -1,11 +1,9 @@
-import { useEffect, useState } from "react";
 import { HighlightMainDiv, HighlightTag, HighlightTagText, HilightItem, HilightLegendDiv, HilightLegendText, SkeletonItem } from "./styles";
 import HilightInterface from "../../Interfaces/HighlightInterface";
-import axios from "axios";
 import { Link } from "react-router-dom";
 
 interface Prop {
-    urlToFetch: string;
+    highlights: HilightInterface[];
     cardsQuantity: number;
     gridConfig: {
         columns: number;
@@ -13,36 +11,7 @@ interface Prop {
     };
 }
 
-const HighLightsComponent = ({ urlToFetch, cardsQuantity, gridConfig = { columns: 4, rows: 2 } }: Prop) => {
-    const [highlights, setHighlights] = useState<HilightInterface[]>([]);
-
-    const fetchData = async (attempt = 1) => {
-        try {
-            const response = await axios.get(urlToFetch);
-            if (response.status === 200) {
-                setHighlights(response.data);
-            } else {
-                console.error('Failed to fetch highlights:', response.statusText);
-                retryFetch(attempt);
-            }
-        } catch (error) {
-            console.error('Error fetching highlights:', error);
-            retryFetch(attempt);
-        }
-    };
-
-    const retryFetch = (attempt: number) => {
-        if (attempt < 3) {
-            console.log(`Retrying fetch in ${attempt * 4} seconds...`);
-            setTimeout(() => fetchData(attempt + 1), attempt * 2000); // Retry after delay
-        } else {
-            console.error('Max retries reached. Failed to fetch highlights.');
-        }
-    };
-
-    useEffect(() => {
-        fetchData();
-    }, [urlToFetch]);
+const HighLightsComponent = ({ highlights, cardsQuantity, gridConfig = { columns: 4, rows: 2 } }: Prop) => {
 
     const { columns, rows } = gridConfig;
     return (

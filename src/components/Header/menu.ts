@@ -27,5 +27,4 @@ export const menu: MenuProps[] = [
     { 'route': 'Noticias', 'link': 'noticias', 'icon': newsIcon },
     { 'route': 'Quiz', 'link': 'quiz', 'icon': quizIcon },
     { 'route': 'Quem Somos', 'link': 'quem-somos', 'icon': aboutUsIcon },
-    { 'route': 'Entrar', 'link': 'entrar', 'icon': logInIcon }
 ];

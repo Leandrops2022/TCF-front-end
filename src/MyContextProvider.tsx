@@ -17,8 +17,10 @@ const MyContextProvider: React.FC<MyContextProviderProps> = ({ children }) => {
 
     }
 
+    const basePageUrl = "https://top100filmes.com.br/";
+
     return (
-        <MyContext.Provider value={{ showingMenu, showMenu, hideMenu }}>
+        <MyContext.Provider value={{ showingMenu, showMenu, hideMenu, basePageUrl }}>
             {children}
         </MyContext.Provider>
     );
