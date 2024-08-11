@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Styledlink = styled(Link)`
   color:silver;
   text-decoration:none;
-  width:fit-content
+  width:100%
 `
 
 export const MovieItem = styled.div`
@@ -16,10 +16,10 @@ export const MovieItem = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-color: rgba(80, 79, 79, 0.7);
-  width: 80vw;
+  width: 100%;
   display: flex;
   flex-direction: row;
-  flex:1;
+  flex-grow: 1;
   border-radius: 8px;
   box-shadow: 2px 2px 2px black;
   font-family: 'Roboto', sans-serif;
@@ -45,6 +45,7 @@ export const ContainerTodoConteudo = styled.div`
   flex-direction: row;
   font-family: 'Roboto', sans-serif;
   z-index: 1;
+
 `;
 
 export const InnerContent = styled.div`
@@ -52,9 +53,10 @@ export const InnerContent = styled.div`
   display: flex;
   flex-direction:row;
   padding: 2.5rem 0.5rem;
-  border:1px solid green;
+  
   @media screen and (max-width: 1000px) {
     padding: 1.4rem 0.5rem;
+
   }
 `;
 
@@ -85,7 +87,7 @@ export const FilmeItemTextos = styled.div`
   height: 100%;
   line-height: 5vh;
   overflow: hidden;
-  
+
 `;
 
 // Ranking and rating section
@@ -158,5 +160,4 @@ export const PaginationDiv = styled.div`
 // Text content
 export const TextContentDiv = styled.div`
   margin: 1rem 0;
-
 `;

@@ -21,9 +21,12 @@ import MenuButton from "../../assets/icons/menu.svg";
 import SearchBar from "./components/SearchBar";
 import { MyContext } from "../../MyContext";
 import { useContext } from "react";
+import AutoCompleteResults from "../AutoCompleteResults/AutoCompleteResults";
+import { useSelector } from "react-redux";
 
 
 const Header = () => {
+    const suggestions = useSelector((state: any) => state.autocomplete.suggestions);
     const { showingMenu, showMenu, hideMenu } = useContext(MyContext);
 
     return <>
@@ -36,6 +39,7 @@ const Header = () => {
 
             <StyledSearchDiv>
                 <SearchBar />
+                {suggestions && suggestions.length > 0 && <AutoCompleteResults />}
             </StyledSearchDiv>
 
             <StyledMenuDiv>

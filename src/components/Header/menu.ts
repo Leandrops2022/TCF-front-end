@@ -6,7 +6,6 @@ import articlesIcon from "../../assets/icons/newspaper.svg";
 import newsIcon from "../../assets/icons/noticias.svg";
 import quizIcon from "../../assets/icons/test.svg";
 import aboutUsIcon from "../../assets/icons/quemsomos.svg";
-import logInIcon from "../../assets/icons/home.svg";
 import otherTop10 from "../../assets/icons/star-sharp.svg";
 
 

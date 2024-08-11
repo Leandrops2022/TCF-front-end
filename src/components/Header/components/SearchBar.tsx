@@ -1,24 +1,72 @@
-import styled from "styled-components"
+import styled from "styled-components";
 import SearchIcon from "../../../assets/icons/search.svg";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { useCallback, useRef, useState } from "react";
+import { debounce, isEmpty } from "lodash";
+import { useDispatch } from "react-redux";
+import { fetchSuggestionsStart, fetchSuggestionsSuccess, fetchSuggestionsFailure } from "../../../ReduxStore/autocompleteSlice";
 
 const SearchBar = () => {
+    const dispatch = useDispatch();
+    const abortControllersRef = useRef<AbortController[]>([]);
+    const [lastQuery, setLastQuery] = useState<string | null>(null);
 
-    const getAutoComplete = () => {
-        axios.get('http://localhost:8000/api/getAutoComplete')
+    const getAutoComplete = useCallback(debounce((textQuery: string) => {
+
+        const abortController = new AbortController();
+        abortControllersRef.current.push(abortController);
+
+        dispatch(fetchSuggestionsStart());
+        axios.post('http://localhost:8000/api/auto-complete', {
+            textQuery: textQuery
+        }, { signal: abortController.signal })
             .then(response => {
-                if (response.status === 200) {
-                    return response.data;
+                if (response.status === 200 && !isEmpty(lastQuery)) {
+                    dispatch(fetchSuggestionsSuccess(response.data));
                 }
             })
-            .then(data => console.log(data))
-            .catch(error => console.log('There was an error completing the requisition - ' + error.message))
+            .catch(error => {
+                if (axios.isCancel(error)) {
+                    console.log("Request canceled:", error.message);
+                } else {
+                    dispatch(fetchSuggestionsFailure(error.message))
+                }
+            })
+            .finally(() => {
+                abortControllersRef.current = abortControllersRef.current.filter(ctrl => ctrl !== abortController);
+            });
+    }, 300), [dispatch, lastQuery]);
+
+    const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const value = event.target.value.trim();
+
+        if (isEmpty(value)) {
+            abortControllersRef.current.forEach(controller => controller.abort());
+            abortControllersRef.current = []; // Clear the controllers array
+
+            dispatch(fetchSuggestionsSuccess(null));
+            setLastQuery(null);
+
+        } else {
+            setLastQuery(prevQuery => {
+                if (value.length % 2 === 0) {
+                    console.log('fazendo requisição...');
+                    getAutoComplete(value);
+                }
+                return value;
+            });
+        }
+
     }
 
     return (
         <StyledDiv>
-            <StyledInput type="text" onClick={getAutoComplete} />
-            <StyledSearchButton></StyledSearchButton>
+            <StyledInput type="text" onChange={handleTextChange} />
+            <StyledSearchButton>
+                <FontAwesomeIcon icon={faSearch} />
+            </StyledSearchButton>
         </StyledDiv>
     )
 }
@@ -28,11 +76,14 @@ const StyledDiv = styled.div`
     flex-direction:row;
     align-self:center;
     justify-self:center;
-    width:80%;
+    width: 50%;
+    @media screen and (max-width: 900px) {
+        width:80%;
+    }
 `;
 
 const StyledInput = styled.input`
-    width: 90%;
+    width: 95%;
     border:none;
     border-radius:5px 0 0 5px;
     background-color:gray;
@@ -41,20 +92,20 @@ const StyledInput = styled.input`
     &:focus {
         outline:none;
     }
-    &:hover {
-        cursor: pointer;
-    }
+    
 `;
 
 const StyledSearchButton = styled.button`
     width: 3rem;
-    height:2rem;
+    height:fit-content;
+    padding:0.5rem;
     border:none;
     border-radius:0 5px 5px 0;
     background-image: url(${SearchIcon});
     background-position:center;
     background-size:contain;
     background-repeat:no-repeat;
+    border:1px solid silver;
 `;
 
 export default SearchBar;

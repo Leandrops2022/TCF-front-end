@@ -20,16 +20,28 @@ export const StyledHeader = styled.header`
 `;
 
 export const StyledLogoDiv = styled.div`
-    width:fit-content;
     @media (max-width: 900px) {
         display:flex;
         flex-direction:row;
         margin-left: 2rem;
+        width:45vw;
+
+    }
+    @media screen and (max-width: 600px) {
+        width:45vw;
+    }
+
+    @media screen and (min-width: 601px) and (max-width: 900px) {
+        width:40vw;
+    }
+
+    @media screen and (min-width: 901px) {
+        width:15vw;
     }
 `;
 
 export const StyledLogo = styled.img`
-    
+
     @media screen and (max-width: 600px) {
         width:45vw;
     }
@@ -44,15 +56,15 @@ export const StyledLogo = styled.img`
 `;
 
 export const StyledSearchDiv = styled.div`
-    overflow-y:hidden;
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:flex-end;
     padding-bottom:0.3rem;
+    position:relative;
+    overflow-y:visible;
     @media screen and (max-width:900px) {
-        margin-top:2rem;
-        padding-bottom:2rem;
+      padding: 1rem 0;
     }
 `;
 

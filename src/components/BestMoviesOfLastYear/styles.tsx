@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const MainContentDiv = styled.div`
     display:flex;
     flex-direction:column;
-    width:80vw;
+    width:60vw;
     margin: 1rem auto 20rem auto;
     @media screen and (max-width: 1000px) {
         width: 96vw;
@@ -11,10 +11,10 @@ export const MainContentDiv = styled.div`
 `;
 
 export const CoverDiv = styled.div`
-    width: 70%;
+    width: 90%;
     margin: 0 0 3rem 0;   
     @media screen and (max-width: 1000px) {
-        width: 100%;
+        width: 97%;
     }
 `;
 

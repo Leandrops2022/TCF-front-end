@@ -22,6 +22,7 @@ const MyRouter = (): React.JSX.Element => {
 
                 <ContainerDiv>
                     <Header />
+
                     <Routes>
                         <Route path='/' element={<Main />}>
                             <Route index element={<Home />} />
