@@ -21,7 +21,7 @@ import MenuButton from "../../assets/icons/menu.svg";
 import SearchBar from "./components/SearchBar";
 import { MyContext } from "../../MyContext";
 import { useContext } from "react";
-import AutoCompleteResults from "../AutoCompleteResults/AutoCompleteResults";
+import AutoCompleteResults from "./components/AutoCompleteResults/AutoCompleteResults";
 import { useSelector } from "react-redux";
 
 

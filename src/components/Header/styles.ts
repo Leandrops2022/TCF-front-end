@@ -60,11 +60,11 @@ export const StyledSearchDiv = styled.div`
     flex-direction:column;
     align-items:center;
     justify-content:flex-end;
-    padding-bottom:0.3rem;
+    padding-bottom:0.2rem;
     position:relative;
     overflow-y:visible;
     @media screen and (max-width:900px) {
-      padding: 1rem 0;
+      padding: 1rem 0 0.2rem 0;
     }
 `;
 
@@ -186,9 +186,7 @@ export const StyledMenuButtonDiv = styled.div`
 `;
 
 export const StyledButton = styled.button`
-    width:50px;
-    height:50px;
-    border:none;
+    width:2vw;
     background-color:transparent;
     align-self: center;
     border-radius:8px;
