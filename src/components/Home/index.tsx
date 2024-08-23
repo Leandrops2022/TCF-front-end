@@ -7,41 +7,49 @@ import axios from "axios";
 
 // import { MyContext } from "../../MyContext";
 import SectionCard from "./components/SectionCard";
+import useFetchUrl from "../../Hooks/useFetchUrl";
 
 const Home = () => {
-    const [highlights, setHighlights] = useState<HilightInterface[]>([]);
 
-    const urlToFetch = 'http://127.0.0.1:8000/api/home';
+    // const urlToFetch = 'http://127.0.0.1:8000/api/home';
     // const { basePageUrl } = useContext(MyContext);
 
-    const fetchData = async (attempt = 1) => {
-        try {
-            const response = await axios.get(urlToFetch);
-            if (response.status === 200) {
-                setHighlights(response.data.highlights);
-            } else {
-                console.error('Failed to fetch highlights:', response.statusText);
-                retryFetch(attempt);
-            }
-        } catch (error) {
-            console.error('Error fetching highlights:', error);
-            retryFetch(attempt);
-        }
-    };
+    // const fetchData = async (attempt = 1) => {
+    //     try {
+    //         const response = await axios.get(urlToFetch);
+    //         if (response.status === 200) {
+    //             setHighlights(response.data.highlights);
+    //         } else {
+    //             console.error('Failed to fetch highlights:', response.statusText);
+    //             retryFetch(attempt);
+    //         }
+    //     } catch (error) {
+    //         console.error('Error fetching highlights:', error);
+    //         retryFetch(attempt);
+    //     }
+    // };
 
-    const retryFetch = (attempt: number) => {
-        if (attempt < 3) {
-            console.log(`Retrying fetch in ${attempt * 4} seconds...`);
-            setTimeout(() => fetchData(attempt + 1), attempt * 2000); // Retry after delay
-        } else {
-            console.error('Max retries reached. Failed to fetch highlights.');
-        }
-    };
+    // const retryFetch = (attempt: number) => {
+    //     if (attempt < 3) {
+    //         console.log(`Retrying fetch in ${attempt * 4} seconds...`);
+    //         setTimeout(() => fetchData(attempt + 1), attempt * 2000); // Retry after delay
+    //     } else {
+    //         console.error('Max retries reached. Failed to fetch highlights.');
+    //     }
+    // };
 
-    useEffect(() => {
-        fetchData();
-    }, []);
+    // useEffect(() => {
+    //     fetchData();
+    // }, []);
 
+    const {data} = useFetchUrl('home');
+    let highlights = [];
+    if (data && data.highlights) {
+        highlights = data.highlights;
+    } else {
+        console.log("Data or highlights is not available yet.");
+    }
+    
     return (
         <StyledMainDiv>
             <HighLightsComponent

@@ -30,12 +30,12 @@ export const MovieItem = styled.div`
     cursor: pointer;
   }
   @media screen and (max-width: 1000px) {
-    width: 95vw;
+    width:100%;
   }
 `;
 
 // Container for content within MovieItem
-export const ContainerTodoConteudo = styled.div`
+export const MainContainer = styled.div`
   position: relative;
   padding: 1.1rem 0.5rem 0.5rem 0;
   margin-bottom: 1.5rem;
@@ -61,7 +61,7 @@ export const InnerContent = styled.div`
 `;
 
 // Poster image in MovieItem
-export const FilmeItemPoster = styled.img`
+export const MoviePoster = styled.img`
   background-color: gray;
   width: 12vw;
   border-radius: 8px;
@@ -74,7 +74,7 @@ export const FilmeItemPoster = styled.img`
 `;
 
 // Text content area in MovieItem
-export const FilmeItemTextos = styled.div`
+export const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -91,7 +91,7 @@ export const FilmeItemTextos = styled.div`
 `;
 
 // Ranking and rating section
-export const RankingENota = styled.div`
+export const RankingAndRating = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -100,22 +100,45 @@ export const RankingENota = styled.div`
   font-family: 'Roboto', sans-serif;
   @media screen and (max-width: 1000px){
     font-size:1rem;
-    margin-top:1rem;
+    margin-top:0rem;
 
   }
 `;
 
 // Title, year, and duration section
-export const TituloAnoDuracao = styled.div`
+export const TitleReleaseDuration = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
 @media screen and (max-width: 1000px) {
-  line-height:25px;
-  gap:0.5rem;
+  line-height:15px;
+  gap:0.8rem;
 }
+`;
+
+export const StyledH2 = styled.h2`
+  margin:0;
+  @media screen and (max-width: 1000px) {
+    font-size: 1.3rem
+  }
+`;
+
+export const StyledH3 = styled.h3`
+  margin:0;
+  font-size:1.3rem;
+  padding:0;
+  @media screen and (max-width: 1000px) {
+    font-size: 1.1rem;
+    line-height:1.1rem;
+  }
+`;
+
+export const StyledH5 = styled.h5`
+  margin:0;
+  font-size: 0.9rem;
+  padding:0;
 `;
 
 // "Assisted" SVG icon

@@ -4,6 +4,7 @@ export const MyContext = createContext({
     showingMenu: false,
     showMenu: () => { },
     hideMenu: () => { },
-    basePageUrl: ''
+    defaultUrl: '',
+    defaultOfficialUrl: '',
 
 });

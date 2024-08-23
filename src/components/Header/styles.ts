@@ -12,7 +12,7 @@ export const StyledHeader = styled.header`
 
     @media screen and (max-width: 900px) {
         display:block;
-        width:97%;
+        width:100%;
         grid-template-columns: 1fr;
         grid-template-rows: repeat(3,1fr);
         padding: 0.8rem 0.5rem 0 0.5rem;

@@ -11,7 +11,9 @@ import Article from "./components/Article";
 import { PageNews } from "./components/PageNews";
 import OscarWinners from "./components/OscarWinners";
 import BestMoviesOfLastYear from "./components/BestMoviesOfLastYear";
-import MovieInfo from "./components/MovieInfo";
+import { ActorDetails } from "./components/ActorDetails";
+import MovieDetails from "./components/MovieDetails";
+import { Minilist } from "./components/Minilist";
 
 const MyRouter = (): React.JSX.Element => {
     return (
@@ -27,12 +29,16 @@ const MyRouter = (): React.JSX.Element => {
                         <Route path='/' element={<Main />}>
                             <Route index element={<Home />} />
                             <Route path="/ganhadores-oscar-2024" element={<OscarWinners />} />
-                            <Route path="/melhores-filmes-do-ano-passado" element={<BestMoviesOfLastYear />} />
-                            <Route path="/filme" element={<MovieInfo />} />
-                            <Route path="/top100" element={<Top100 />} />
-                            <Route path="/artigo" element={<Article />} />
-                            <Route path="/minilista" element={<Article />} />
-                            <Route path="/noticia" element={<PageNews />} />
+                            <Route path="/:slug" element={<BestMoviesOfLastYear />} />
+
+                            <Route path="/filme/:slug" element={<MovieDetails />} />
+                            <Route path="/ator/:slug" element={<ActorDetails />} />
+
+                            <Route path="/top100/:slug" element={<Top100 />} />
+
+                            <Route path="/artigo/:slug" element={<Article />} />
+                            <Route path="/minilista/:slug" element={<Minilist />} />
+                            <Route path="/noticia/:slug" element={<PageNews />} />
                         </Route>
                     </Routes>
                 </ContainerDiv>

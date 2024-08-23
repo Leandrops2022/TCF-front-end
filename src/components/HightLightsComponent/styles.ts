@@ -37,6 +37,36 @@ export const HilightItem = styled.div`
   }
 `;
 
+// export const HilightItem = styled.div`
+//     height: 300px; /* Fixed height */
+//     width: 100%; /* Full width of the grid cell */
+//     background: transparent; 
+//     border-radius: 4px;
+//     border-left: 2px solid #f0f0f0;
+//     position:relative;
+//     overflow: hidden; /* Ensure no overflow of content */
+    
+//     &:hover {
+//         scale: 1.1;
+//         z-index: 999;
+//         box-shadow: 5px 7px 15px black;
+//     }
+
+//     @media screen and (max-width: 900px) {
+//         width: 100%;
+//         height: auto; /* Adjust height on small screens */
+//     }
+// `;
+
+export const HilightCover = styled.img`
+    height: 170px;  
+    object-fit: cover; 
+    border-radius: 8px; 
+    @media screen and (max-width: 1000px) {
+      height: 120px;
+    }
+`;
+
 export const HilightLegendDiv = styled.div`
   position: absolute;
   background-color: rgba(0,0,0,0.5);
@@ -56,7 +86,7 @@ export const HilightLegendDiv = styled.div`
 
 export const HilightLegendText = styled.p`
     color:#F0F0F0F0;  
-    font-size: 1rem;
+    font-size: .9rem;
     font-weight:thin;
     @media screen and (max-width: 900px) {
     font-size: .7rem;
@@ -110,19 +140,38 @@ const shimmerAnimation = keyframes`
   }
 `;
 
-export const SkeletonItem = styled.div`
-  height: 300px;
-  width: 20vw;
-  background: #f0f0f0; 
-  background-image: linear-gradient(to right, #f0f0f0 0%, #e0e0e0 20%, #f0f0f0 40%); 
-  background-size: 200px 100%; 
-  border-radius: 4px;
-  animation: ${pulseAnimation} 1.7s infinite alternate, ${shimmerAnimation} 1.7s ease-in-out infinite; 
-  border-left: 2px solid #f0f0f0;
-  position:relative;
+// export const SkeletonItem = styled.div`
+//   height: 300px;
+//   width: 20vw;
+//   background: #f0f0f0; 
+//   background-image: linear-gradient(to right, #f0f0f0 0%, #e0e0e0 20%, #f0f0f0 40%); 
+//   background-size: 200px 100%; 
+//   border-radius: 4px;
+//   animation: ${pulseAnimation} 1.7s infinite alternate, ${shimmerAnimation} 1.7s ease-in-out infinite; 
+//   border-left: 2px solid #f0f0f0;
+//   position:relative;
 
-  @media screen and (max-width: 900px) {
-    width: 40vw;
-    height: 17vh;
-  }
+//   @media screen and (max-width: 900px) {
+//     width: 40vw;
+//     height: 17vh;
+//   }
+// `;
+
+
+export const SkeletonItem = styled.div`
+    height: 300px;
+    width: 20vw;
+    background: #f0f0f0; 
+    background-image: linear-gradient(to right, #f0f0f0 0%, #e0e0e0 20%, #f0f0f0 40%); 
+    background-size: 200px 100%; 
+    border-radius: 4px;
+    animation: ${pulseAnimation} 1.7s infinite alternate, ${shimmerAnimation} 1.7s ease-in-out infinite; 
+    border-left: 2px solid #f0f0f0;
+    position: relative;
+
+    @media screen and (max-width: 900px) {
+        width: 40vw;
+        height: 17vh;
+    }
 `;
+

@@ -53,7 +53,8 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     h2{
-      font-size:1.8rem;
+      font-size:1.5rem;
+      margin: 1rem 0;
       @media screen and (max-width:900px) {
         font-size:1.2rem;
         padding: 0;
@@ -61,7 +62,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     h3 {
-      font-size:1.6rem;
+      font-size:1.3rem;
       padding: 1rem 0;
       @media screen and (max-width:900px) {
         font-size:1rem;
@@ -70,7 +71,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     h5 {
-      font-size:1.3rem;
+      font-size:1.2rem;
       padding: 1rem 0;
       @media screen and (max-width:900px) {
         font-size:0.8rem;
@@ -78,7 +79,9 @@ export const GlobalStyles = createGlobalStyle`
       }
     }
 
-    
+    li {
+      margin: 0.5rem 0;
+    }
 
 `
 

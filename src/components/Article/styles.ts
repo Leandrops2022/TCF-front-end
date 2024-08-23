@@ -51,8 +51,8 @@ export const ArticleSkeletonDiv = styled.div`
     gap:1rem;
     margin-bottom: 2rem;
 
-    height: 60vh;
-    width: 82%;
+    height: 80vh;
+    width: 100%;
     background: #f0f0f0; 
     background-image: linear-gradient(to right, #f0f0f0 0%, #e0e0e0 20%, #f0f0f0 40%); 
     background-size: 200px 100%; 

@@ -19,6 +19,8 @@ const SearchBar = () => {
         abortControllersRef.current.push(abortController);
 
         dispatch(fetchSuggestionsStart());
+        console.log('fazendo requisição...');
+
         axios.post('http://localhost:8000/api/auto-complete', {
             textQuery: textQuery
         }, { signal: abortController.signal })
@@ -51,8 +53,7 @@ const SearchBar = () => {
 
         } else {
             setLastQuery(prevQuery => {
-                if (value.length % 2 === 0) {
-                    console.log('fazendo requisição...');
+                if (value.length % 3 === 0) {
                     getAutoComplete(value);
                 }
                 return value;
