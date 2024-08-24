@@ -1,4 +1,4 @@
-import { Container } from "./styles";
+import { Container, CoverDiv, MainContentDiv, StyledCover } from "./styles";
 import useFetchUrl from "../../Hooks/useFetchUrl";
 
 const MovieDetails = () => {
@@ -16,12 +16,11 @@ const MovieDetails = () => {
     }
 
     return <Container>
-
-       
-        {/* <MainContentDiv backgroundUrl={ }>
-            Here will the the movie info
-
-        </MainContentDiv> */}
+        <CoverDiv>
+            <StyledCover src={data?.poster}/>
+        </CoverDiv>
+        <MainContentDiv />
+     
     </Container>
 }
 

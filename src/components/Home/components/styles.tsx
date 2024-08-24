@@ -31,7 +31,7 @@ export const CardLegendDiv = styled.div`
     padding:1rem 0;
     background-color: rgba(0,0,0,0.5);
     text-align:center;
-    font-size:1.4rem;
+    font-size:1.2rem;
 
     @media screen and (max-width: 900px) {
         font-size: 1rem;

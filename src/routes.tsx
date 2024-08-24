@@ -14,6 +14,7 @@ import BestMoviesOfLastYear from "./components/BestMoviesOfLastYear";
 import { ActorDetails } from "./components/ActorDetails";
 import MovieDetails from "./components/MovieDetails";
 import { Minilist } from "./components/Minilist";
+import Minilists from "./components/Minilists";
 
 const MyRouter = (): React.JSX.Element => {
     return (
@@ -37,7 +38,10 @@ const MyRouter = (): React.JSX.Element => {
                             <Route path="/top100/:slug" element={<Top100 />} />
 
                             <Route path="/artigo/:slug" element={<Article />} />
+
                             <Route path="/minilista/:slug" element={<Minilist />} />
+                            <Route path="/minilista" element={<Minilists />} />
+
                             <Route path="/noticia/:slug" element={<PageNews />} />
                         </Route>
                     </Routes>
