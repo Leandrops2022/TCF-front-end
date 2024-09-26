@@ -1,4 +1,5 @@
 import HilightInterface from "./HighlightInterface";
+import MovieDataInterface from "./MovieDataInterface";
 
 interface DataInterface {
     content?: Record<string, any>;  
@@ -11,6 +12,7 @@ interface DataInterface {
     resumo_portugues?:string;
     nota?:string;   
     genero:string;
+    movieData: MovieDataInterface;
 }
 
 export default DataInterface;

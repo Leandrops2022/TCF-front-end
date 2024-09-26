@@ -1,5 +1,4 @@
-import styled from "styled-components";
-
+import { StyledTop100Div } from "./styles/styles";
 
 const Top100 = () => {
     return (<StyledTop100Div>
@@ -9,6 +8,3 @@ const Top100 = () => {
 
 export default Top100;
 
-const StyledTop100Div = styled.div`
-    background-color: var(--background-color);
-`;

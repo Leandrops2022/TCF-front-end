@@ -19,7 +19,7 @@ export const GlobalStyles = createGlobalStyle`
     --font-size-medium: 1.5em;
     --font-size-small: 1em;
     --primary-text-color:#c5c5c5;
-    --primary-yellow: #EDD63B;
+    --primary-yellow: #cfa864;
 
     --button-backgroundColor: #6387CF;
 

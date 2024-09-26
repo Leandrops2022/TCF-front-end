@@ -15,7 +15,7 @@ import {
     StyledSearchDiv
 } from "./styles";
 import { menu } from "./menu";
-import TCFLogo from "../../assets/logos/TCFLogoSite.svg";
+import TCFLogo from "../../assets/logos/TCFLogoSiteNovo.svg";
 import { Link } from "react-router-dom";
 import MenuButton from "../../assets/icons/menu.svg";
 import SearchBar from "./components/SearchBar";

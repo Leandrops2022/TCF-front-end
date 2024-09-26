@@ -21,7 +21,7 @@ const AutoCompleteResults = () => {
                     <StyledLink className="hover:bg-slate-200	" onClick={()=> {
                         dispatch(fetchSuggestionsSuccess(null));
 
-                    }} to={`/${routes[suggestion.rota]}?title=${suggestion.slug}`}>
+                    }} to={`/${routes[suggestion.rota]}/${suggestion.slug}`}>
                         {suggestion.nome}<span className="text-xs">({suggestion.tag})</span>
                     </StyledLink>
                    

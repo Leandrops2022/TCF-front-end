@@ -15,6 +15,7 @@ const useFetchUrl = (path: string) => {
 
 
     const urlToFetch = slug ? `${defaultUrl}/${path}/${slug}` : `${defaultUrl}/${path}`;
+    console.log(urlToFetch);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -31,7 +32,6 @@ const useFetchUrl = (path: string) => {
 
         fetchData();
     }, [urlToFetch]);
-
     return { data, loading, error };
 };
 

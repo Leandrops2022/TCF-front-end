@@ -113,10 +113,11 @@ export const StyledCloseButton = styled.button`
     padding:0;
     border: none;
     color:#BA4947;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     font-weight: bolder;
     position: fixed;
-    right:1rem;
+    right:1.5rem;
+    top: 1.5rem;
     &:hover {
         cursor: pointer;
     }
@@ -134,7 +135,7 @@ export const StyledMenuList = styled.ul`
     background-color:#181818;
     border-radius: 8px;
     width:95%;
-    height: 97%;
+    height: fit-content;
     justify-self:center;
     box-sizing: border-box;
     padding: 1rem;
@@ -215,7 +216,7 @@ export const StyledLink = styled(Link)`
 `;
 
 export const StyledIcon = styled.img`
-    width:30px;
-    height:30px;
+    width:20px;
+    height:20px;
 `;
 

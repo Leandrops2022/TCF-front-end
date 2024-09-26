@@ -18,10 +18,10 @@ interface MenuProps {
 
 export const menu: MenuProps[] = [
     { 'route': 'Home', 'link': '/', 'icon': homeIcon },
-    { 'route': 'Melhores de 2023', 'link': 'melhores-2023', 'icon': bestOf2023Icon },
-    { 'route': 'Top 100 melhores', 'link': 'top100', 'icon': top100Icon },
-    { 'route': 'Outros Top 100', 'link': 'outros-top', 'icon': otherTop10 },
-    { 'route': 'Listas', 'link': 'listas', 'icon': listsIcon },
+    { 'route': 'Melhores de 2023', 'link': 'melhores-filmes-do-ano-passado', 'icon': bestOf2023Icon },
+    { 'route': 'Top 100 melhores', 'link': 'top100/melhores', 'icon': top100Icon },
+    { 'route': 'Outros Top 100', 'link': 'melhores-por-genero', 'icon': otherTop10 },
+    { 'route': 'Listas', 'link': 'minilistas', 'icon': listsIcon },
     { 'route': 'Artigos', 'link': 'artigos', 'icon': articlesIcon },
     { 'route': 'Noticias', 'link': 'noticias', 'icon': newsIcon },
     { 'route': 'Quiz', 'link': 'quiz', 'icon': quizIcon },

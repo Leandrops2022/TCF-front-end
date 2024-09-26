@@ -110,7 +110,7 @@ export const HighlightTag = styled.div`
 `;
 
 export const HighlightTagText = styled.span`
-  color: var(--primary-yellow);
+  color: #cfa864;
   font-size: 0.8rem;
   font-weight: thin;
   @media screen and (max-width: 900px) {
