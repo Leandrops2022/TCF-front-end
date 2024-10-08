@@ -5,7 +5,9 @@ interface HilightInterface {
     rota: string,
     slug: string,
     tag: string,
-    titulo: string
+    titulo: string,
+    imagem?: string,
+
 }
 
 export default HilightInterface;

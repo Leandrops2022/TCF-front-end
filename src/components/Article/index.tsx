@@ -11,8 +11,8 @@ const Article: React.FC = () => {
 
     const { defaultOfficialUrl } = useContext(MyContext);
 
-    const { data } = useFetchUrl('artigo');
-    
+    const { data } = useFetchUrl('artigos');
+
     let content = data?.content;
     let highlights = data?.highlights ?? [];
 
@@ -20,11 +20,11 @@ const Article: React.FC = () => {
         <MainArticleDiv>
 
             {content ?
-                <ContentContainer data={data?.content || {}}/>
+                <ContentContainer data={data?.content || {}} />
                 : (<ArticleSkeletonDiv>
                     <div style={{ width: '60%', height: '50%', margin: '1rem auto', backgroundColor: 'rgba(0,0,0,0.5)' }}></div>
                     {
-                        Array.from({length:5}).map((element,index) => (
+                        Array.from({ length: 5 }).map((element, index) => (
                             <span key={index} style={{ margin: '1rem', borderBottom: '10px solid silver', width: '60%', alignSelf: 'center' }}></span>
                         ))
                     }
@@ -38,7 +38,7 @@ const Article: React.FC = () => {
                     Veja também
                 </StyledSideTitle>
 
-                {highlights.length > 0 &&  <HighLightsComponent
+                {highlights.length > 0 && <HighLightsComponent
                     highlights={highlights}
                     cardsQuantity={4}
                     gridConfig={{
@@ -47,7 +47,7 @@ const Article: React.FC = () => {
                     }}
                 />
                 }
-               
+
             </StyledSideDiv>
 
         </MainArticleDiv>

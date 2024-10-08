@@ -10,17 +10,19 @@ import { MyContext } from "../../MyContext";
 import { useParams } from "react-router-dom";
 
 
-const MovieCardsAndPagination:  React.FC<MovieCardsAndPaginationInterface> = ({path, content}) => {
+const MovieCardsAndPagination: React.FC<MovieCardsAndPaginationInterface> = ({ path, content }) => {
     const [movieList, setMovielist] = useState<CompactMovieDataInterface[]>([]);
     const [paginationData, setPaginationData] = useState<PaginationDataInterface | null>(null);
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [isLoading, setIsloading] = useState<boolean>(true);
 
-    const {defaultUrl} = useContext(MyContext);
-    const {slug} = useParams();
+    const { defaultUrl } = useContext(MyContext);
+    const { slug } = useParams();
     const skeletonArray = Array.from({ length: 10 });
     // Reference for the CardsHoldingContainer
     const cardsContainerRef = useRef<HTMLDivElement>(null);
+
+    console.log(path);
 
     const fetchMovies = (page: number) => {
         const url = path ? `${defaultUrl}/${path}/${slug}?page=${page}` : `${defaultUrl}/${slug}?page=${page}`;
@@ -46,38 +48,38 @@ const MovieCardsAndPagination:  React.FC<MovieCardsAndPaginationInterface> = ({p
     useEffect(() => {
         if (!content) {
             fetchMovies(currentPage);
-        }else {
+        } else {
             setMovielist(content);
             setIsloading(false);
         }
-    }, [content,currentPage]);
+    }, [content, currentPage]);
 
     return <>
-       <CardsHoldingContainer ref={cardsContainerRef}>
-                {isLoading && skeletonArray.map((element, index) => (
-                    <SkeletonMovieCard key={index} />
-                ))}
-                {!isLoading && movieList && movieList.map((movie, index) => (
-                    <MovieCard movie={movie} key={index} />
-                ))}
+        <CardsHoldingContainer ref={cardsContainerRef}>
+            {isLoading && skeletonArray.map((element, index) => (
+                <SkeletonMovieCard key={index} />
+            ))}
+            {!isLoading && movieList && movieList.map((movie, index) => (
+                <MovieCard movie={movie} key={index} />
+            ))}
         </CardsHoldingContainer>
 
-            {paginationData && !content && (
-                <PaginationDiv>
-                    <Pagination
-                        currentPage={paginationData.current_page}
-                        lastPage={paginationData.last_page}
-                        onPageChange={(page) => {
-                            setIsloading(true);
-                            if (cardsContainerRef.current) {
-                                cardsContainerRef.current.scrollIntoView({ behavior: 'instant' });
+        {paginationData && !content && (
+            <PaginationDiv>
+                <Pagination
+                    currentPage={paginationData.current_page}
+                    lastPage={paginationData.last_page}
+                    onPageChange={(page) => {
+                        setIsloading(true);
+                        if (cardsContainerRef.current) {
+                            cardsContainerRef.current.scrollIntoView({ behavior: 'instant' });
 
-                            }
-                            fetchMovies(page)
-                        }}
-                    />
-                </PaginationDiv>
-            )}
+                        }
+                        fetchMovies(page)
+                    }}
+                />
+            </PaginationDiv>
+        )}
     </>
 }
 

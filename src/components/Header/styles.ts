@@ -158,7 +158,7 @@ export const StyledMenuList = styled.ul`
 `;
 
 export const StyledMenuItem = styled.li`
-   padding: 0.8rem 0;
+   padding: 0 0;
    display:flex;
    justify-content:flex-start;
    border-radius:5px;
@@ -213,6 +213,8 @@ export const StyledLink = styled(Link)`
     gap:1rem;
     align-items: center;
     justify-content:flex-start;
+    width:100%;
+    padding:0.8rem;
 `;
 
 export const StyledIcon = styled.img`

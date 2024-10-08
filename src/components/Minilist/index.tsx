@@ -6,7 +6,7 @@ import ContentContainer from "../ContentContainer";
 import HighLightsComponent from "../HightLightsComponent";
 
 export const Minilist: React.FC = () => {
-    const {data, loading} = useFetchUrl('minilista');
+    const { data, loading } = useFetchUrl('minilistas');
 
     if (loading) {
         return <LoadingIndicator />
@@ -16,20 +16,20 @@ export const Minilist: React.FC = () => {
 
     return (
         <MainContainer>
-            <ContentContainer data={contentData}/>
-                
-            <MovieCardsAndPagination path={"minilista"} content={data?.movies}/>
+            <ContentContainer data={contentData} />
+
+            <MovieCardsAndPagination path={"minilista"} content={data?.movies} />
 
             <h2 className={'mt-20 mb-20 text-center'}>Veja Também:</h2>
 
             <HighLightsComponent
-                    highlights={data?.highlights || []}
-                    cardsQuantity={4}
-                    gridConfig={{
-                        columns: 4,
-                        rows: 1
-                    }}
-                />
+                highlights={data?.highlights || []}
+                cardsQuantity={4}
+                gridConfig={{
+                    columns: 4,
+                    rows: 1
+                }}
+            />
 
         </MainContainer>
     );

@@ -1,14 +1,14 @@
 import { useContext, useEffect, useRef, useState } from "react"
 import HighLightsComponent from "../HightLightsComponent"
-import useFetchUrl from "../../Hooks/useFetchUrl";
 import { PaginationDataInterface } from "../../Interfaces/PaginationDataInterface";
 import { PaginationDiv } from "../MovieCardsAndPagination/styles";
 import Pagination from "../Pagination";
 import HilightInterface from "../../Interfaces/HighlightInterface";
 import axios from "axios";
 import { MyContext } from "../../MyContext";
+import { useLocation, useParams } from "react-router-dom";
 
-const Minilists = () => {
+const ContentList = () => {
     const [paginationData, setPaginationData] = useState<PaginationDataInterface | null>(null);
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [minilists, setMinilists] = useState<HilightInterface[]>([]);
@@ -16,10 +16,13 @@ const Minilists = () => {
 
     const headerRef = useRef<HTMLDivElement>(null);
 
-    const {defaultUrl} = useContext(MyContext);
+    const { defaultUrl } = useContext(MyContext);
 
-    const fetchMinilists = (page: number) => {
-        const url =`${defaultUrl}/minilista?page=${page}`;
+    const location = useLocation();
+    const currentPath = location.pathname;
+
+    const fetchData = (page: number) => {
+        const url = `${defaultUrl}${currentPath}?page=${page}`;
 
         axios.get(url)
             .then(response => {
@@ -41,40 +44,39 @@ const Minilists = () => {
     };
 
     useEffect(() => {
-       
-        fetchMinilists(currentPage);
-      
-    }, [currentPage]);
+        setCurrentPage(1);
+        fetchData(1);
+
+    }, [currentPath]);
 
 
-    
     return <div className={"mt-5"}>
-            <div ref={headerRef}></div>
+        <div ref={headerRef}></div>
 
         <HighLightsComponent
             highlights={minilists || []}
-            cardsQuantity={4}
+            cardsQuantity={10}
             gridConfig={{
                 columns: 4,
                 rows: 1
             }}
         />
         <PaginationDiv>
-       {paginationData && ( <Pagination
-            currentPage={currentPage}
-            lastPage={paginationData.last_page}
-            onPageChange={(page) => {
-                setIsloading(true);
-                if (headerRef.current) {
-                    headerRef.current.scrollIntoView({
-                        behavior: 'instant', 
-                    });
-                }
-                fetchMinilists(page)
-            }}
-        />)}
+            {paginationData && (<Pagination
+                currentPage={currentPage}
+                lastPage={paginationData.last_page}
+                onPageChange={(page) => {
+                    setIsloading(true);
+                    if (headerRef.current) {
+                        headerRef.current.scrollIntoView({
+                            behavior: 'instant',
+                        });
+                    }
+                    fetchData(page)
+                }}
+            />)}
         </PaginationDiv>
     </div>
 }
 
-export default Minilists;
+export default ContentList;

@@ -9,13 +9,19 @@ export const Container = styled.div`
     justify-content: space-evenly;
     gap:1rem;
     width:90vw;
+    padding-bottom:3rem;
     margin: auto;
     @media screen and (max-width: 1000px) {
         display: flex;
         flex-direction:column;
-        width: 100%
+        width: 100%;
+
     }
 `;
+
+export const LoadingDiv = styled.div`
+    min-height:100vh;
+`
 
 export const CardDiv = styled.div`
     display:flex;

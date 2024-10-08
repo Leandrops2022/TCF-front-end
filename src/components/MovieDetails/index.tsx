@@ -1,4 +1,4 @@
-import { AdditionalInfoDiv, CardDiv, CastDiv, CastSwiperSlide, Container, CoverDiv, MainContentDiv, MovieGenres, MovieInfoDiv, MovieSynopsis, MovieTitle, ProviderImage, ProvidersDiv, StyledActorImage, StyledCastLegendDiv, StyledCastSwiper, StyledCover, StyledIFrame, StyledLink, StyledSwiper, WhereToWatchDiv } from "./styles";
+import { AdditionalInfoDiv, CardDiv, CastDiv, CastSwiperSlide, Container, CoverDiv, LoadingDiv, MainContentDiv, MovieGenres, MovieInfoDiv, MovieSynopsis, MovieTitle, ProviderImage, ProvidersDiv, StyledActorImage, StyledCastLegendDiv, StyledCastSwiper, StyledCover, StyledIFrame, StyledLink, StyledSwiper, WhereToWatchDiv } from "./styles";
 import useFetchUrl from "../../Hooks/useFetchUrl";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons/faStar";
@@ -9,20 +9,25 @@ import { Navigation, Pagination } from "swiper/modules";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import LoadingIndicator from "../LoadingIndicator";
 
 const MovieDetails = () => {
 
     const { data, loading, error } = useFetchUrl('filme');
 
+    window.scrollTo(0, 0);
+
     if (loading) {
-        return <div>Loading...</div>;
+
+        return <LoadingDiv>
+            <LoadingIndicator />
+        </LoadingDiv>;
     }
 
     if (error) {
         return <div>{error}</div>;
     }
 
-    console.log(data?.movieData);
 
     return <Container>
         <CardDiv>
@@ -54,7 +59,7 @@ const MovieDetails = () => {
                         >
                             {data?.movieData.atores.map((actor, index) => {
                                 return <CastSwiperSlide key={index}>
-                                    <StyledLink to={"ator/" + actor.slug}>
+                                    <StyledLink to={"/ator/" + actor.slug}>
 
                                         <StyledActorImage src={actor.poster} />
                                         <StyledCastLegendDiv>
@@ -90,7 +95,14 @@ const MovieDetails = () => {
                 navigation
                 pagination
                 spaceBetween={20}
-                slidesPerView={3}
+                breakpoints={{
+                    1000: {
+                        slidesPerView: 1,
+                    },
+                    1001: {
+                        slidesPerView: 3,
+                    },
+                }}
             >
                 {data?.movieData.videos.map((video, index) => {
                     return <SwiperSlide key={index}>

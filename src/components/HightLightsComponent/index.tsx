@@ -17,7 +17,7 @@ const HighLightsComponent = ({ highlights, cardsQuantity, gridConfig = { columns
                     <SkeletonItem key={index} />
                 )))
                 : (highlights.map((element, index) => (
-                    <Link to={`/${element.rota}/${encodeURIComponent(element.slug)}`} key={index} onClick={()=>{
+                    <Link to={`/${element.rota}/${encodeURIComponent(element.slug)}`} key={index} onClick={() => {
                         window.scrollTo({ top: 0, behavior: 'instant' });
                     }}>
                         <HilightItem >
@@ -26,7 +26,9 @@ const HighLightsComponent = ({ highlights, cardsQuantity, gridConfig = { columns
                                     {element.tag}
                                 </HighlightTagText>
                             </HighlightTag>}
-                            <HilightCover src={'https://top100filmes.com.br/public/' + element.capa} alt={element.alt_capa} style={{ width: '100%', borderRadius: '8px' }} />
+                            <HilightCover src={element.capa ?
+                                'https://top100filmes.com.br/public/' + element.capa
+                                : 'https://top100filmes.com.br/public/' + element.imagem} alt={element.alt_capa} style={{ width: '300px', borderRadius: '8px' }} />
                             <HilightLegendDiv>
                                 <HilightLegendText>
                                     {element.titulo}

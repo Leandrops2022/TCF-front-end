@@ -2,9 +2,14 @@ import styled from "styled-components";
 
 export const StyledTop100Div = styled.div`
     background-color: var(--background-color);
-    width: 82vw;
+    width: 85vw;
+    min-height:100vh;
     margin:auto;
-    border:1px solid red;
     text-align:center;
+    @media screen and (max-width: 1000px){
+        width:100%;
+    }
 `;
+
+
 
