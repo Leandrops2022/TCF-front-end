@@ -8,6 +8,7 @@ import { debounce, isEmpty } from "lodash";
 import { useDispatch } from "react-redux";
 import { fetchSuggestionsStart, fetchSuggestionsSuccess, fetchSuggestionsFailure } from "../../../ReduxStore/autocompleteSlice";
 import { MyContext } from "../../../MyContext";
+import { useNavigate } from "react-router-dom";
 
 const SearchBar = () => {
     const dispatch = useDispatch();
@@ -15,6 +16,13 @@ const SearchBar = () => {
     const lastSentQueryRef = useRef<string | null>(null);
 
     const { defaultUrl } = useContext(MyContext);
+    const navigate = useNavigate();
+
+    const handleSearchClick = () => {
+        const slug = lastSentQueryRef.current || '';
+        dispatch(fetchSuggestionsSuccess(null));
+        navigate(`/busca/${encodeURI(slug)}`);
+    };
 
     const getAutoComplete = useCallback(debounce((textQuery: string) => {
 
@@ -70,8 +78,17 @@ const SearchBar = () => {
 
     return (
         <StyledDiv>
-            <StyledInput type="text" onChange={handleTextChange} />
-            <StyledSearchButton>
+            <StyledInput
+                type="text"
+                onChange={handleTextChange}
+                onKeyDown={(event) => {
+                    if (event.key === 'Enter') {
+                        handleSearchClick();
+                    }
+                }}
+
+            />
+            <StyledSearchButton onClick={handleSearchClick}>
                 <FontAwesomeIcon icon={faSearch} />
             </StyledSearchButton>
         </StyledDiv>

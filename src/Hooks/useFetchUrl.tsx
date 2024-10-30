@@ -14,7 +14,7 @@ const useFetchUrl = (path: string) => {
     const { slug } = useParams();
 
 
-    const urlToFetch = slug ? `${defaultUrl}/${path}/${slug}` : `${defaultUrl}/${path}`;
+    const urlToFetch = slug ? `${defaultUrl}/${path}/${encodeURI(slug)}` : `${defaultUrl}/${path}`;
     console.log(urlToFetch);
 
     useEffect(() => {

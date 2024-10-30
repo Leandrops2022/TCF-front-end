@@ -16,6 +16,7 @@ import Footer from "./components/Footer";
 import Disclaimer from "./components/Disclaimer";
 import CookieDisclaimer from "./components/CookieAgreement";
 import ContentList from "./components/ContentList";
+import Searchresults from "./components/SearchResults";
 
 const MyRouter = (): React.JSX.Element => {
     return (
@@ -51,6 +52,8 @@ const MyRouter = (): React.JSX.Element => {
 
                                 <Route path="/noticias/:slug" element={<Article />} />
                                 <Route path="/noticias" element={<ContentList />} />
+
+                                <Route path="/busca/:slug" element={<Searchresults />} />
 
                             </Route>
                         </Routes>

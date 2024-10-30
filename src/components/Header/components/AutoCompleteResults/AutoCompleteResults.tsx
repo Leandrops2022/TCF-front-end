@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { SuggestionInterface } from "../../../../Interfaces/SuggestionInterface";
 import { fetchSuggestionsSuccess } from "../../../../ReduxStore/autocompleteSlice";
 import { StyledLink } from "../../styles";
@@ -8,20 +9,32 @@ const AutoCompleteResults = () => {
     const suggestions = useSelector((state: any) => state.autocomplete.suggestions);
     const dispatch = useDispatch();
 
-    const routes: { [key: string]: string } = {
-        'detalhesFilme': 'filmes',
-        'detalhesAtor': 'atores'
+    const resultsRef = useRef<HTMLDivElement | null>(null);
+
+    const handleClickOutside = (event: MouseEvent) => {
+        if (resultsRef.current && !resultsRef.current.contains(event.target as Node)) {
+            dispatch(fetchSuggestionsSuccess(null));
+        }
     };
 
-    return <ResultsContainer>
+    useEffect(() => {
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
+
+
+    return <ResultsContainer ref={resultsRef}>
         <ul>
             {suggestions.map((suggestion: SuggestionInterface, index: number) => {
 
-                return <li className="text-slate-950" key={index}>
-                    <StyledLink className="hover:bg-slate-200	" onClick={() => {
-                        dispatch(fetchSuggestionsSuccess(null));
+                return <li key={index}>
+                    <StyledLink
+                        to={`/${suggestion.rota}/${suggestion.slug}`}
+                        onClick={() => {
+                            dispatch(fetchSuggestionsSuccess(null));
 
-                    }} to={`/${routes[suggestion.rota]}/${suggestion.slug}`}>
+                        }}
+                    >
                         {suggestion.nome}<span className="text-xs">({suggestion.tag})</span>
                     </StyledLink>
 

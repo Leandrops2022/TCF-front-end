@@ -1,11 +1,15 @@
 import { HighlightMainDiv, HighlightTag, HighlightTagText, HilightCover, HilightItem, HilightLegendDiv, HilightLegendText, SkeletonItem, StyledLink, SummaryDiv } from "./styles";
 import { HighlightsComponentInterface } from "../../Interfaces/HighlightsComponentInterface";
+import { useContext } from "react";
+import { MyContext } from "../../MyContext";
 
 
 
 const HighLightsComponent = ({ highlights, cardsQuantity, gridConfig = { columns: 4, rows: 2 } }: HighlightsComponentInterface) => {
 
     const { columns, rows } = gridConfig;
+
+    const { defaultOfficialUrl } = useContext(MyContext);
 
     return (
         <HighlightMainDiv style={{
@@ -27,8 +31,8 @@ const HighLightsComponent = ({ highlights, cardsQuantity, gridConfig = { columns
                                 </HighlightTagText>
                             </HighlightTag>}
                             <HilightCover src={element.capa ?
-                                'https://top100filmes.com.br/public/' + element.capa
-                                : 'https://top100filmes.com.br/public/' + element.imagem} alt={element.alt_capa} style={{ width: '300px', borderRadius: '8px' }} />
+                                `${defaultOfficialUrl}/public/${element.capa}`
+                                : `${defaultOfficialUrl}/public/${element.imagem}`} alt={element.alt_capa} style={{ width: '300px', borderRadius: '8px' }} />
                             <HilightLegendDiv>
                                 <HilightLegendText>
                                     {element.titulo}
