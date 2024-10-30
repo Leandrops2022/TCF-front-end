@@ -6,7 +6,7 @@ const MovieCard = ({ movie }: { movie: CompactMovieDataInterface }) => {
     const posterUrl = movie.poster.replace('original', 'w154');
     return (
 
-        <Styledlink to={`/filme/${encodeURIComponent(movie.slug)}`}>
+        <Styledlink to={`/filmes/${encodeURIComponent(movie.slug)}`}>
             <MovieItem>
 
 
@@ -19,7 +19,7 @@ const MovieCard = ({ movie }: { movie: CompactMovieDataInterface }) => {
                 </div>
                 <TextContainer>
                     <RankingAndRating>
-                        <StyledH2>{movie.rank ? movie.rank+' - ' : ""}{movie.nota} <span >&#9733;</span></StyledH2>
+                        <StyledH2>{movie.rank ? movie.rank + ' - ' : ""}{movie.nota} <span >&#9733;</span></StyledH2>
                     </RankingAndRating>
                     <TitleReleaseDuration>
                         <StyledH3>{movie.titulo_portugues}<br />({movie.ano_lancamento} - {movie.duracao}min)</StyledH3>

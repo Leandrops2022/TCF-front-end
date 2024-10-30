@@ -210,11 +210,11 @@ export const StyledButton = styled.button`
 export const StyledLink = styled(Link)`
     text-decoration: none;
     display:flex;
-    gap:1rem;
+    gap:0.2rem;
     align-items: center;
     justify-content:flex-start;
     width:100%;
-    padding:0.8rem;
+    padding:0.5rem;
 `;
 
 export const StyledIcon = styled.img`

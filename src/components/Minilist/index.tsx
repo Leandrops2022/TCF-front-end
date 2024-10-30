@@ -4,6 +4,7 @@ import { MainContainer } from "./styles";
 import MovieCardsAndPagination from "../MovieCardsAndPagination";
 import ContentContainer from "../ContentContainer";
 import HighLightsComponent from "../HightLightsComponent";
+import DisqusComponent from "../DisqusComponent";
 
 export const Minilist: React.FC = () => {
     const { data, loading } = useFetchUrl('minilistas');
@@ -30,7 +31,7 @@ export const Minilist: React.FC = () => {
                     rows: 1
                 }}
             />
-
+            <DisqusComponent />
         </MainContainer>
     );
 }

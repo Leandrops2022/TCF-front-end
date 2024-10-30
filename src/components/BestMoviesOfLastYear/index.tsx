@@ -1,23 +1,26 @@
 
 import MovieCardsAndPagination from '../MovieCardsAndPagination';
-import {  MainContentDiv } from './styles';
+import { MainContentDiv } from './styles';
 import data from "./assets/2023.json";
 import ContentContainer from '../ContentContainer';
+import DisqusComponent from '../DisqusComponent';
+import { useLocation } from 'react-router-dom';
 
 
 const BestMoviesOfLastYear = () => {
-   
+
+    const pathlocation = useLocation();
+
+    console.log(pathlocation);
+
     return (
         <MainContentDiv>
-            
-            <ContentContainer data={data}/>
+
+            <ContentContainer data={data} />
 
             <MovieCardsAndPagination />
-        
-            <div id="disqus_thread"></div>
-            <noscript>
-                Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-            </noscript>
+
+            <DisqusComponent />
         </MainContentDiv>
     );
 };

@@ -1,5 +1,4 @@
-import { HighlightMainDiv, HighlightTag, HighlightTagText, HilightCover, HilightItem, HilightLegendDiv, HilightLegendText, SkeletonItem } from "./styles";
-import { Link } from "react-router-dom";
+import { HighlightMainDiv, HighlightTag, HighlightTagText, HilightCover, HilightItem, HilightLegendDiv, HilightLegendText, SkeletonItem, StyledLink, SummaryDiv } from "./styles";
 import { HighlightsComponentInterface } from "../../Interfaces/HighlightsComponentInterface";
 
 
@@ -7,6 +6,7 @@ import { HighlightsComponentInterface } from "../../Interfaces/HighlightsCompone
 const HighLightsComponent = ({ highlights, cardsQuantity, gridConfig = { columns: 4, rows: 2 } }: HighlightsComponentInterface) => {
 
     const { columns, rows } = gridConfig;
+
     return (
         <HighlightMainDiv style={{
             '--columns': columns,
@@ -17,7 +17,7 @@ const HighLightsComponent = ({ highlights, cardsQuantity, gridConfig = { columns
                     <SkeletonItem key={index} />
                 )))
                 : (highlights.map((element, index) => (
-                    <Link to={`/${element.rota}/${encodeURIComponent(element.slug)}`} key={index} onClick={() => {
+                    <StyledLink to={`/${element.rota}s/${encodeURIComponent(element.slug)}`} key={index} onClick={() => {
                         window.scrollTo({ top: 0, behavior: 'instant' });
                     }}>
                         <HilightItem >
@@ -35,7 +35,9 @@ const HighLightsComponent = ({ highlights, cardsQuantity, gridConfig = { columns
                                 </HilightLegendText>
                             </HilightLegendDiv>
                         </HilightItem>
-                    </Link>
+                        {element.texto && <SummaryDiv dangerouslySetInnerHTML={{ __html: `${element.texto}...` }}>
+                        </SummaryDiv>}
+                    </StyledLink>
                 )))
             }
         </HighlightMainDiv>

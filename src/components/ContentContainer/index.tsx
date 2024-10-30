@@ -4,19 +4,24 @@ import { MyContext } from "../../MyContext"
 import Iframe from "../Iframe";
 
 
-const ContentContainer:React.FC<{ data:  Record<string, any> }> = ({data}) => {
+const ContentContainer: React.FC<{ data: Record<string, any> }> = ({ data }) => {
     const { defaultOfficialUrl } = useContext(MyContext);
-    
+
     return <MainContainer>
-           <CoverDiv>
-                <CoverImg src={`${defaultOfficialUrl}/${data.imgSrc}`} alt={data.imgAlt} />
-            </CoverDiv>
+        <CoverDiv>
+            <CoverImg src={`${defaultOfficialUrl}/${data.imgSrc}`} alt={data.imgAlt} />
+        </CoverDiv>
 
+        <TextContentDiv>
             <Title>{data.title}</Title>
+            {data.created_at && <span className={"text-xs"}>Por redação em {data.created_at}</span>}
+            <br /><br />
 
-             <TextContentDiv dangerouslySetInnerHTML={{ __html: data.content }} />
-             {data?.trailer && <Iframe src={data?.trailer}/>}
-                
+            <div dangerouslySetInnerHTML={{ __html: data.content }} />
+        </TextContentDiv>
+        {data?.trailer && <Iframe src={data.trailer} />}
+
+
     </MainContainer>
 }
 

@@ -3,30 +3,35 @@ import SearchIcon from "../../../assets/icons/search.svg";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useContext, useRef, useState } from "react";
 import { debounce, isEmpty } from "lodash";
 import { useDispatch } from "react-redux";
 import { fetchSuggestionsStart, fetchSuggestionsSuccess, fetchSuggestionsFailure } from "../../../ReduxStore/autocompleteSlice";
+import { MyContext } from "../../../MyContext";
 
 const SearchBar = () => {
     const dispatch = useDispatch();
     const abortControllersRef = useRef<AbortController[]>([]);
-    const [lastQuery, setLastQuery] = useState<string | null>(null);
+    const lastSentQueryRef = useRef<string | null>(null);
+
+    const { defaultUrl } = useContext(MyContext);
 
     const getAutoComplete = useCallback(debounce((textQuery: string) => {
 
         const abortController = new AbortController();
         abortControllersRef.current.push(abortController);
 
-        dispatch(fetchSuggestionsStart());
-        console.log('fazendo requisição...');
 
-        axios.post('http://localhost:8000/api/auto-complete', {
+        dispatch(fetchSuggestionsStart());
+
+        axios.post(`${defaultUrl}/auto-complete`, {
             textQuery: textQuery
         }, { signal: abortController.signal })
             .then(response => {
-                if (response.status === 200 && !isEmpty(lastQuery)) {
+                if (response.status === 200 && lastSentQueryRef.current != null) {
+
                     dispatch(fetchSuggestionsSuccess(response.data));
+
                 }
             })
             .catch(error => {
@@ -39,25 +44,26 @@ const SearchBar = () => {
             .finally(() => {
                 abortControllersRef.current = abortControllersRef.current.filter(ctrl => ctrl !== abortController);
             });
-    }, 300), [dispatch, lastQuery]);
+    }, 300), [dispatch]);
 
     const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = event.target.value.trim();
+
+        lastSentQueryRef.current = value;
 
         if (isEmpty(value)) {
             abortControllersRef.current.forEach(controller => controller.abort());
             abortControllersRef.current = []; // Clear the controllers array
 
             dispatch(fetchSuggestionsSuccess(null));
-            setLastQuery(null);
+            lastSentQueryRef.current = null;
+
 
         } else {
-            setLastQuery(prevQuery => {
-                if (value.length % 3 === 0) {
-                    getAutoComplete(value);
-                }
-                return value;
-            });
+
+            if (value.length % 3 === 0) {
+                getAutoComplete(value);
+            }
         }
 
     }

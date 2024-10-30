@@ -15,7 +15,7 @@ import { Minilist } from "./components/Minilist";
 import Footer from "./components/Footer";
 import Disclaimer from "./components/Disclaimer";
 import CookieDisclaimer from "./components/CookieAgreement";
-import ContentList from "./components/Minilists";
+import ContentList from "./components/ContentList";
 
 const MyRouter = (): React.JSX.Element => {
     return (
@@ -36,18 +36,21 @@ const MyRouter = (): React.JSX.Element => {
                                 <Route path="/ganhadores-oscar-2024" element={<OscarWinners />} />
                                 <Route path="/:slug" element={<BestMoviesOfLastYear />} />
 
-                                <Route path="/filme/:slug" element={<MovieDetails />} />
-                                <Route path="/ator/:slug" element={<ActorDetails />} />
+                                <Route path="/filmes/:slug" element={<MovieDetails />} />
+                                <Route path="/atores/:slug" element={<ActorDetails />} />
 
-                                <Route path="/top100" element={<ContentList />} />
+                                <Route path="/top100s" element={<ContentList />} />
 
-                                <Route path="/top100/:slug" element={<Top100 />} />
+                                <Route path="/top100s/:slug" element={<Top100 />} />
 
-                                <Route path="/artigo/:slug" element={<Article />} />
+                                <Route path="/artigos/:slug" element={<Article />} />
                                 <Route path="/artigos" element={<ContentList />} />
 
-                                <Route path="/minilista/:slug" element={<Minilist />} />
+                                <Route path="/minilistas/:slug" element={<Minilist />} />
                                 <Route path="/minilistas" element={<ContentList />} />
+
+                                <Route path="/noticias/:slug" element={<Article />} />
+                                <Route path="/noticias" element={<ContentList />} />
 
                             </Route>
                         </Routes>

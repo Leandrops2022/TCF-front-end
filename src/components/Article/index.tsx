@@ -1,17 +1,20 @@
 import HighLightsComponent from "../HightLightsComponent";
-import { ArticleContentDiv, ArticleCoverImage, ArticleSkeletonDiv, Container, Content, MainArticleDiv, StyledSideDiv, StyledSideTitle } from "./styles";
-import { useContext } from "react";
-import { MyContext } from "../../MyContext";
+import { ArticleSkeletonDiv, MainArticleDiv, StyledSideDiv, StyledSideTitle } from "./styles";
 import useFetchUrl from "../../Hooks/useFetchUrl";
-import Iframe from "../Iframe";
 import ContentContainer from "../ContentContainer";
+import { useLocation } from "react-router-dom";
+import DisqusComponent from "../DisqusComponent";
 
 
 const Article: React.FC = () => {
 
-    const { defaultOfficialUrl } = useContext(MyContext);
 
-    const { data } = useFetchUrl('artigos');
+    const location = useLocation();
+    const pathSegments = location.pathname.split('/');
+
+    const segment = pathSegments[1];
+
+    const { data } = useFetchUrl(segment);
 
     let content = data?.content;
     let highlights = data?.highlights ?? [];
@@ -49,7 +52,7 @@ const Article: React.FC = () => {
                 }
 
             </StyledSideDiv>
-
+            <DisqusComponent />
         </MainArticleDiv>
     )
 }

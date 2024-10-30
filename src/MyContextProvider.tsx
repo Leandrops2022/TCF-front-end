@@ -20,7 +20,6 @@ const MyContextProvider: React.FC<MyContextProviderProps> = ({ children }) => {
     const defaultUrl = "http://localhost:8000/api";
     const defaultOfficialUrl = "https://www.top100filmes.com.br";
 
-
     return (
         <MyContext.Provider value={{ showingMenu, showMenu, hideMenu, defaultUrl, defaultOfficialUrl }}>
             {children}

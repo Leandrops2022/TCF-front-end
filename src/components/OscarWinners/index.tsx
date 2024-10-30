@@ -1,27 +1,12 @@
 import { useContext, useEffect } from 'react';
 import { MyContext } from '../../MyContext';
 import { ArticleContainer, CoverContainer, CoverImg, MainContainer, StyledIframe } from './styles';
+import DisqusComponent from '../DisqusComponent';
+import { useLocation } from 'react-router-dom';
 
 const OscarWinners = () => {
 
-    useEffect(() => {
-        var disqus_config = function (this: any) {
-            this.page.url = window.location.href; // Replacing PHP with JavaScript
-            this.page.identifier = "Oscar-2024";
-        };
-
-        (function () { // DON'T EDIT BELOW THIS LINE
-            const currentDate = new Date();
-            const timestamp = currentDate.toISOString();
-            var d = document,
-                s = d.createElement('script');
-            s.src = 'https://top100filmes.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', timestamp);
-            (d.head || d.body).appendChild(s);
-        })();
-    }, []); // Empty dependency array means this effect runs once on component mount
-
-    const { basePageUrl } = useContext(MyContext);
+    const { defaultOfficialUrl } = useContext(MyContext);
 
     const winnersList = [
         "Melhor filme: Oppenheimer",
@@ -52,7 +37,7 @@ const OscarWinners = () => {
     return (
         <MainContainer>
             <CoverContainer>
-                <CoverImg src={basePageUrl + '/assets/indicados-oscar-2024/oscars.webp'}
+                <CoverImg src={defaultOfficialUrl + '/assets/indicados-oscar-2024/oscars.webp'}
                     alt="Estatuetas do Oscar enfileiradas em um pedestal" />
                 <span className='text-xs'>Getty images</span>
             </CoverContainer>
@@ -104,10 +89,7 @@ const OscarWinners = () => {
                     <p className="mb-2 leading-5" key={index}>{winner}</p>
                 ))}
             </ArticleContainer>
-
-            <div id="disqus_thread"></div>
-
-            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <DisqusComponent />
         </MainContainer>
     );
 };

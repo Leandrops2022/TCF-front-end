@@ -29,7 +29,7 @@ export const ActorDetails = () => {
             <h2 className={"text-center p-6"}>Filmes em que atuou</h2>
             <StyledUl>
                 {data?.actorData.filmes_que_atuou && data.actorData.filmes_que_atuou.map((filme, index) => <li key={index}>
-                    <Link to={'/filme/' + filme.slug}>
+                    <Link to={`/filmes/${encodeURIComponent(filme.slug)}`}>
                         <StyledSmallMovieDiv>
                             <img width={"70px"} src={filme.poster_filme} />
                             <div className={"p-2 "}>

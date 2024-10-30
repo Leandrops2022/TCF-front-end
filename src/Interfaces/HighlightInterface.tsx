@@ -7,6 +7,7 @@ interface HilightInterface {
     tag: string,
     titulo: string,
     imagem?: string,
+    texto: string,
 
 }
 

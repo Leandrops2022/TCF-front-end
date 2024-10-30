@@ -11,7 +11,7 @@ export const Container = styled.div`
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 100;
+      z-index: 10000;
       position:fixed;
       bottom:0;
     `;
@@ -19,6 +19,7 @@ export const Message = styled.p`
     margin: 0;
     font-size: 14px;
     flex: 1;
+    text-align: center;
 `;
 
 export const Button = styled.button`

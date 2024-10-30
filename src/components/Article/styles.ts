@@ -2,20 +2,18 @@ import styled from "styled-components";
 import { pulseAnimation, shimmerAnimation } from "../GlobalStyle/GlobalStyle";
 
 export const MainArticleDiv = styled.div`
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: fit-content fit-content;
+    display: flex;
+    flex-direction: column;
     grid-row-gap: 0;
-    /* flex-direction: column; */
     min-height:100vh;
     height: fit-content;
     position:relative;
-    width: 80%;
+    width: 95vw;
     margin: 1rem auto;
     @media screen and (max-width: 900px){
         padding:0;
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
+        display: flex;
+        flex-direction: column;
         width: 99%;
         margin: 1rem 0;
     }

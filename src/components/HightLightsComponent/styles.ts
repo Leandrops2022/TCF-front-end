@@ -1,4 +1,25 @@
+import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
+
+export const StyledLink = styled(Link)`
+  border-left: 2px solid silver;
+  border-bottom: 1px solid silver;
+  border-right:1px solid black;
+  border-radius: 6px;
+  width:fit-content;
+
+  &:hover {
+    scale:1.1;
+    z-index: 999;
+    box-shadow: 5px 7px 15px black;
+  }
+
+  @media screen and (max-width: 1000px) {
+    width:fit-content;
+    margin:auto;
+    height: fit-content;
+  }
+`
 
 export const HighlightMainDiv = styled.div`
     display:grid;
@@ -12,8 +33,9 @@ export const HighlightMainDiv = styled.div`
         height:fit-content;
         gap:1rem;
         border-radius: 8px;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         grid-template-rows: auto;
+
     }
 `;
 
@@ -23,13 +45,13 @@ export const HilightItem = styled.div`
   width: fit-content;
   background: transparent; 
   border-radius: 4px;
-  border-left: 2px solid #f0f0f0;
+  /* border-left: 2px solid #f0f0f0; */
   position:relative;
-  &:hover {
+  /* &:hover {
     scale:1.1;
     z-index: 999;
     box-shadow: 5px 7px 15px black;
-  }
+  } */
 
   @media screen and (max-width: 900px) {
     width: 100%;
@@ -45,7 +67,7 @@ export const HilightItem = styled.div`
 //     border-left: 2px solid #f0f0f0;
 //     position:relative;
 //     overflow: hidden; /* Ensure no overflow of content */
-    
+
 //     &:hover {
 //         scale: 1.1;
 //         z-index: 999;
@@ -63,7 +85,7 @@ export const HilightCover = styled.img`
     object-fit: cover; 
     border-radius: 8px; 
     @media screen and (max-width: 1000px) {
-      height: 120px;
+      height: 100%;
     }
 `;
 
@@ -81,15 +103,18 @@ export const HilightLegendDiv = styled.div`
   @media screen and (max-width: 900px) {
     min-height: 2rem;
     height: fit-content;
+
   }
 `;
 
 export const HilightLegendText = styled.p`
-    color:#F0F0F0F0;  
+    /* color:#F0F0F0F0;   */
+    color: #cfa864;
+    text-shadow: 2px 2px 2px black;
     font-size: .9rem;
     font-weight:thin;
     @media screen and (max-width: 900px) {
-    font-size: .7rem;
+    font-size: .8rem;
   }        
 `;
 
@@ -118,6 +143,13 @@ export const HighlightTagText = styled.span`
   }
 `;
 
+export const SummaryDiv = styled.div`
+  border-radius: 5px;
+  width: 300px;
+  font-size: 0.9rem;
+  padding: 0.8rem 0.5rem;
+  text-align: left;
+`;
 
 const pulseAnimation = keyframes`
   0% {

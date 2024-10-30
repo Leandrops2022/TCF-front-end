@@ -59,7 +59,7 @@ const MovieDetails = () => {
                         >
                             {data?.movieData.atores.map((actor, index) => {
                                 return <CastSwiperSlide key={index}>
-                                    <StyledLink to={"/ator/" + actor.slug}>
+                                    <StyledLink to={`/atores/${encodeURIComponent(actor.slug)}`}>
 
                                         <StyledActorImage src={actor.poster} />
                                         <StyledCastLegendDiv>
@@ -78,10 +78,11 @@ const MovieDetails = () => {
                     <WhereToWatchDiv>
                         <p>Onde Assistir: </p>
                         <ProvidersDiv>
-                            {data?.movieData.onde_assistir && data?.movieData.onde_assistir.map((provider) => {
-                                return <ProviderImage width="70px" src={provider.logo_path} key={provider.provider_name}></ProviderImage>
-                            })
-
+                            {data?.movieData.onde_assistir && data?.movieData.onde_assistir.length > 1 ?
+                                data.movieData.onde_assistir.map((provider) => {
+                                    return <ProviderImage width="70px" src={provider.logo_path} key={provider.provider_name}></ProviderImage>
+                                })
+                                : <p>Sem streamings disponíveis</p>
                             }
                         </ProvidersDiv>
                     </WhereToWatchDiv>

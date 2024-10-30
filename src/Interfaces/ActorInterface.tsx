@@ -3,7 +3,7 @@ interface ActorInterface {
     poster: string;
     personagem?: string;
     ordem_importancia?: number;
-    slug?: string;
+    slug: string;
     nascimento: string;
     local_nascimento: string;
     morte: string;

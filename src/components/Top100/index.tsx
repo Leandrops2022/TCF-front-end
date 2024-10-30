@@ -3,8 +3,8 @@ import { StyledTop100Div } from "./styles";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import MovieCardsAndPagination from "../MovieCardsAndPagination";
-import ContentContainer from "../ContentContainer";
 import { Top100IntroInterface } from "../../Interfaces/Top100IntroInterface";
+import DisqusComponent from "../DisqusComponent";
 
 const Top100 = () => {
     const [top100Intro, setTop100Intro] = useState<Top100IntroInterface>();
@@ -13,7 +13,7 @@ const Top100 = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await axios.get("http://127.0.0.1:8000/api/top100/" + top100Name + "/texts");
+            const response = await axios.get("http://127.0.0.1:8000/api/top100s/" + top100Name + "/texts");
             if (response.status == 200) {
                 setTop100Intro(response.data[0]);
 
@@ -30,7 +30,9 @@ const Top100 = () => {
             <div className={'text-left mb-10 p-2'} dangerouslySetInnerHTML={{ __html: top100Intro.p }} />
         </div>
         }
-        <MovieCardsAndPagination path={"top100"} />
+        <MovieCardsAndPagination path={"top100s"} />
+
+        <DisqusComponent />
     </StyledTop100Div>);
 }
 

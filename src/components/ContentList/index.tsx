@@ -11,7 +11,7 @@ import { useLocation, useParams } from "react-router-dom";
 const ContentList = () => {
     const [paginationData, setPaginationData] = useState<PaginationDataInterface | null>(null);
     const [currentPage, setCurrentPage] = useState<number>(1);
-    const [minilists, setMinilists] = useState<HilightInterface[]>([]);
+    const [contentList, setContentList] = useState<HilightInterface[]>([]);
     const [isLoading, setIsloading] = useState<boolean>(true);
 
     const headerRef = useRef<HTMLDivElement>(null);
@@ -29,7 +29,7 @@ const ContentList = () => {
                 if (response.status === 200) {
                     const { data, ...pagination } = response.data;
                     console.log(data);
-                    setMinilists(data);
+                    setContentList(data);
                     setPaginationData(pagination);
                     setCurrentPage(page);
                     setIsloading(false);
@@ -54,7 +54,7 @@ const ContentList = () => {
         <div ref={headerRef}></div>
 
         <HighLightsComponent
-            highlights={minilists || []}
+            highlights={contentList || []}
             cardsQuantity={10}
             gridConfig={{
                 columns: 4,

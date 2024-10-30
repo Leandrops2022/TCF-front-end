@@ -9,8 +9,8 @@ const AutoCompleteResults = () => {
     const dispatch = useDispatch();
 
     const routes: { [key: string]: string } = {
-        'detalhesFilme': 'filme',
-        'detalhesAtor': 'ator'
+        'detalhesFilme': 'filmes',
+        'detalhesAtor': 'atores'
     };
 
     return <ResultsContainer>
@@ -18,13 +18,13 @@ const AutoCompleteResults = () => {
             {suggestions.map((suggestion: SuggestionInterface, index: number) => {
 
                 return <li className="text-slate-950" key={index}>
-                    <StyledLink className="hover:bg-slate-200	" onClick={()=> {
+                    <StyledLink className="hover:bg-slate-200	" onClick={() => {
                         dispatch(fetchSuggestionsSuccess(null));
 
                     }} to={`/${routes[suggestion.rota]}/${suggestion.slug}`}>
                         {suggestion.nome}<span className="text-xs">({suggestion.tag})</span>
                     </StyledLink>
-                   
+
                 </li>
             })}
         </ul>
