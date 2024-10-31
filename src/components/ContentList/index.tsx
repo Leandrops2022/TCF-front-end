@@ -1,12 +1,10 @@
 import { useContext, useEffect, useRef, useState } from "react"
-import HighLightsComponent from "../HightLightsComponent"
 import { PaginationDataInterface } from "../../Interfaces/PaginationDataInterface";
-import { PaginationDiv } from "../MovieCardsAndPagination/styles";
-import Pagination from "../Pagination";
 import HilightInterface from "../../Interfaces/HighlightInterface";
 import axios from "axios";
 import { MyContext } from "../../MyContext";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import ReturnElement from "./component/ReturnElement";
 
 const ContentList = () => {
     const [paginationData, setPaginationData] = useState<PaginationDataInterface | null>(null);
@@ -50,33 +48,15 @@ const ContentList = () => {
     }, [currentPath]);
 
 
-    return <div className={"mt-5"}>
-        <div ref={headerRef}></div>
-
-        <HighLightsComponent
-            highlights={contentList || []}
-            cardsQuantity={10}
-            gridConfig={{
-                columns: 4,
-                rows: 1
-            }}
-        />
-        <PaginationDiv>
-            {paginationData && (<Pagination
-                currentPage={currentPage}
-                lastPage={paginationData.last_page}
-                onPageChange={(page) => {
-                    setIsloading(true);
-                    if (headerRef.current) {
-                        headerRef.current.scrollIntoView({
-                            behavior: 'instant',
-                        });
-                    }
-                    fetchData(page)
-                }}
-            />)}
-        </PaginationDiv>
-    </div>
+    return (<ReturnElement
+        isLoading={isLoading}
+        contentList={contentList}
+        paginationData={paginationData}
+        currentPage={currentPage}
+        headerRef={headerRef}
+        setIsloading={setIsloading}
+        fetchData={fetchData}
+    />);
 }
 
 export default ContentList;

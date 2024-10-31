@@ -1,11 +1,6 @@
-// import { useContext } from "react";
-import { useEffect, useState } from "react";
 import HighLightsComponent from "../HightLightsComponent";
 import { MidContentDiv, StyledLink, StyledMainDiv } from "./styles";
-import HilightInterface from "../../Interfaces/HighlightInterface";
-import axios from "axios";
 
-// import { MyContext } from "../../MyContext";
 import SectionCard from "./components/SectionCard";
 import useFetchUrl from "../../Hooks/useFetchUrl";
 import NowPlaying from "../NowPlaying";

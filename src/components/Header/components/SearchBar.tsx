@@ -3,7 +3,7 @@ import SearchIcon from "../../../assets/icons/search.svg";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { useCallback, useContext, useRef, useState } from "react";
+import { useCallback, useContext, useRef } from "react";
 import { debounce, isEmpty } from "lodash";
 import { useDispatch } from "react-redux";
 import { fetchSuggestionsStart, fetchSuggestionsSuccess, fetchSuggestionsFailure } from "../../../ReduxStore/autocompleteSlice";

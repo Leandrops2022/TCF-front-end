@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { ConfirmationButton, ConfirmationButtonsDiv, ModalDiv, StyledDialogBox } from "./styles"
 import useCookie from "../../Hooks/useCookie";
 

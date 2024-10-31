@@ -1,8 +1,7 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { MyContext } from '../../MyContext';
 import { ArticleContainer, CoverContainer, CoverImg, MainContainer, StyledIframe } from './styles';
 import DisqusComponent from '../DisqusComponent';
-import { useLocation } from 'react-router-dom';
 
 const OscarWinners = () => {
 

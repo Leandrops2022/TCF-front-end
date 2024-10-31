@@ -19,10 +19,7 @@ const MovieCardsAndPagination: React.FC<MovieCardsAndPaginationInterface> = ({ p
     const { defaultUrl } = useContext(MyContext);
     const { slug } = useParams();
     const skeletonArray = Array.from({ length: 10 });
-    // Reference for the CardsHoldingContainer
     const cardsContainerRef = useRef<HTMLDivElement>(null);
-
-    console.log(path);
 
     const fetchMovies = (page: number) => {
         const url = path ? `${defaultUrl}/${path}/${slug}?page=${page}` : `${defaultUrl}/${slug}?page=${page}`;
@@ -56,7 +53,7 @@ const MovieCardsAndPagination: React.FC<MovieCardsAndPaginationInterface> = ({ p
 
     return <>
         <CardsHoldingContainer ref={cardsContainerRef}>
-            {isLoading && skeletonArray.map((element, index) => (
+            {isLoading && skeletonArray.map((_element, index) => (
                 <SkeletonMovieCard key={index} />
             ))}
             {!isLoading && movieList && movieList.map((movie, index) => (

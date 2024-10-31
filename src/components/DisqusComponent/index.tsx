@@ -8,7 +8,7 @@ const DisqusComponent = () => {
 
     console.log(pathName)
     useEffect(() => {
-        var disqus_config = function (this: any) {
+        (window as any).disqus_config = function (this: any) {
             this.page.url = window.location.href;
             this.page.identifier = pathName;
         };

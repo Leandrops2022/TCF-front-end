@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Button, Container, Message } from './styles';
 
 const setCookie = (name: string, value: string, days: number) => {

@@ -88,6 +88,10 @@ export const StyledSmallMovieDiv = styled.div`
     display: flex;
 `;
 
+export const StyledImg = styled.img`
+    height: 90px;
+`;
+
 export const StyledP = styled.p`
     color: whitesmoke;
     text-shadow: 1px 1px 1px black;

@@ -27,7 +27,7 @@ const Article: React.FC = () => {
                 : (<ArticleSkeletonDiv>
                     <div style={{ width: '60%', height: '50%', margin: '1rem auto', backgroundColor: 'rgba(0,0,0,0.5)' }}></div>
                     {
-                        Array.from({ length: 5 }).map((element, index) => (
+                        Array.from({ length: 5 }).map((_element, index) => (
                             <span key={index} style={{ margin: '1rem', borderBottom: '10px solid silver', width: '60%', alignSelf: 'center' }}></span>
                         ))
                     }

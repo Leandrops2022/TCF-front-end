@@ -1,13 +1,13 @@
-import { Link, useParams } from "react-router-dom"
-import { ActorBiography, ActorImage, ActorImageDiv, ActorInfoDiv, ActorPersonalInfo, Container, MainContentDiv, StyledP, StyledSmallMovieDiv, StyledUl } from "./styles"
-import { useEffect } from "react";
+import { Link } from "react-router-dom"
+import { ActorBiography, ActorImage, ActorImageDiv, ActorInfoDiv, ActorPersonalInfo, Container, MainContentDiv, StyledImg, StyledP, StyledSmallMovieDiv, StyledUl } from "./styles"
 import useFetchUrl from "../../Hooks/useFetchUrl";
 
 
 export const ActorDetails = () => {
 
-    const { data, loading, error } = useFetchUrl(`ator`);
-    console.log(data?.actorData.filmes_que_atuou);
+    const { data } = useFetchUrl(`ator`);
+
+    const noImage = "https://st4.depositphotos.com/14953852/24787/v/450/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg";
     return <Container>
         <MainContentDiv>
 
@@ -31,7 +31,7 @@ export const ActorDetails = () => {
                 {data?.actorData.filmes_que_atuou && data.actorData.filmes_que_atuou.map((filme, index) => <li key={index}>
                     <Link to={`/filmes/${encodeURIComponent(filme.slug)}`}>
                         <StyledSmallMovieDiv>
-                            <img width={"70px"} src={filme.poster_filme} />
+                            <StyledImg src={filme.poster_filme || noImage} />
                             <div className={"p-2 "}>
                                 <StyledP className={"text-white"}>{filme.titulo_filme} ({filme.ano}) - {filme.nota}&#9733;</StyledP>
                                 <span>Personagem: {filme.personagem}</span>
