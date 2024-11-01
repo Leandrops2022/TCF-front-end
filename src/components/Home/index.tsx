@@ -7,7 +7,9 @@ import NowPlaying from "../NowPlaying";
 
 const Home = () => {
     const { data } = useFetchUrl('home');
+
     let highlights: any = [];
+
     if (data && data.highlights) {
         highlights = data.highlights;
     } else {

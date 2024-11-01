@@ -18,6 +18,7 @@ export const StyledLink = styled(Link)`
     width:fit-content;
     margin:auto;
     height: fit-content;
+
   }
 `
 
@@ -45,47 +46,21 @@ export const HilightItem = styled.div`
   width: fit-content;
   background: transparent; 
   border-radius: 4px;
-  /* border-left: 2px solid #f0f0f0; */
   position:relative;
-  /* &:hover {
-    scale:1.1;
-    z-index: 999;
-    box-shadow: 5px 7px 15px black;
-  } */
-
+ 
   @media screen and (max-width: 900px) {
     width: 100%;
     height: fit-content;
   }
 `;
 
-// export const HilightItem = styled.div`
-//     height: 300px; /* Fixed height */
-//     width: 100%; /* Full width of the grid cell */
-//     background: transparent; 
-//     border-radius: 4px;
-//     border-left: 2px solid #f0f0f0;
-//     position:relative;
-//     overflow: hidden; /* Ensure no overflow of content */
-
-//     &:hover {
-//         scale: 1.1;
-//         z-index: 999;
-//         box-shadow: 5px 7px 15px black;
-//     }
-
-//     @media screen and (max-width: 900px) {
-//         width: 100%;
-//         height: auto; /* Adjust height on small screens */
-//     }
-// `;
-
 export const HilightCover = styled.img`
     height: 170px;  
     object-fit: cover; 
     border-radius: 8px; 
     @media screen and (max-width: 1000px) {
-      height: 100%;
+      width: 90vw;
+      height:200px;
     }
 `;
 
@@ -100,7 +75,7 @@ export const HilightLegendDiv = styled.div`
   box-sizing: border-box;
   display: flex;
   align-items:center;
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 1000px) {
     min-height: 2rem;
     height: fit-content;
 
@@ -113,8 +88,8 @@ export const HilightLegendText = styled.p`
     text-shadow: 2px 2px 2px black;
     font-size: .9rem;
     font-weight:thin;
-    @media screen and (max-width: 900px) {
-    font-size: .8rem;
+    @media screen and (max-width: 1000px) {
+    font-size: 1.2rem;
   }        
 `;
 
@@ -128,7 +103,7 @@ export const HighlightTag = styled.div`
   display: flex;
   align-items: center;
   justify-content:center;
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 1000px) {
     height:1.8rem;
     width: 3rem;
   }
@@ -138,7 +113,7 @@ export const HighlightTagText = styled.span`
   color: #cfa864;
   font-size: 0.8rem;
   font-weight: thin;
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 1000px) {
     font-size: .7rem;
   }
 `;
@@ -171,24 +146,6 @@ const shimmerAnimation = keyframes`
     background-position: 200px 0;
   }
 `;
-
-// export const SkeletonItem = styled.div`
-//   height: 300px;
-//   width: 20vw;
-//   background: #f0f0f0; 
-//   background-image: linear-gradient(to right, #f0f0f0 0%, #e0e0e0 20%, #f0f0f0 40%); 
-//   background-size: 200px 100%; 
-//   border-radius: 4px;
-//   animation: ${pulseAnimation} 1.7s infinite alternate, ${shimmerAnimation} 1.7s ease-in-out infinite; 
-//   border-left: 2px solid #f0f0f0;
-//   position:relative;
-
-//   @media screen and (max-width: 900px) {
-//     width: 40vw;
-//     height: 17vh;
-//   }
-// `;
-
 
 export const SkeletonItem = styled.div`
     height: 300px;

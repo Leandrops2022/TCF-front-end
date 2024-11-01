@@ -16,13 +16,13 @@ const MovieCardsAndPagination: React.FC<MovieCardsAndPaginationInterface> = ({ p
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [isLoading, setIsloading] = useState<boolean>(true);
 
-    const { defaultUrl } = useContext(MyContext);
+    const { defaultOfficialUrl } = useContext(MyContext);
     const { slug } = useParams();
     const skeletonArray = Array.from({ length: 10 });
     const cardsContainerRef = useRef<HTMLDivElement>(null);
 
     const fetchMovies = (page: number) => {
-        const url = path ? `${defaultUrl}/${path}/${slug}?page=${page}` : `${defaultUrl}/${slug}?page=${page}`;
+        const url = path ? `${defaultOfficialUrl}/api/${path}/${slug}?page=${page}` : `${defaultOfficialUrl}/api/${slug}?page=${page}`;
 
         axios.get(url)
             .then(response => {

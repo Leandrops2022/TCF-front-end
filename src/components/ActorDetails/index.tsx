@@ -1,11 +1,16 @@
 import { Link } from "react-router-dom"
-import { ActorBiography, ActorImage, ActorImageDiv, ActorInfoDiv, ActorPersonalInfo, Container, MainContentDiv, StyledImg, StyledP, StyledSmallMovieDiv, StyledUl } from "./styles"
+import { ActorBiography, ActorImage, ActorImageDiv, ActorInfoDiv, ActorPersonalInfo, BirthDiv, Container, MainContentDiv, StyledImg, StyledP, StyledSmallMovieDiv, StyledUl } from "./styles"
 import useFetchUrl from "../../Hooks/useFetchUrl";
+import LoadingIndicator from "../LoadingIndicator";
 
 
 export const ActorDetails = () => {
 
-    const { data } = useFetchUrl(`ator`);
+    const { data } = useFetchUrl(`atores`);
+
+    if (!data) {
+        return <LoadingIndicator />
+    }
 
     const noImage = "https://st4.depositphotos.com/14953852/24787/v/450/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg";
     return <Container>
@@ -17,9 +22,11 @@ export const ActorDetails = () => {
                 </ActorImageDiv>
                 <ActorInfoDiv>
                     <h1 className={'text-center text-xxg'}>{data?.actorData.nome}</h1>
-                    <p>Nascimento: {data?.actorData.nascimento}</p>
-                    <p>Local de nascimento: {data?.actorData.local_nascimento}</p>
-                    {data?.actorData.morte && data.actorData.morte != '01/01/0001' && <p>Morte: {data.actorData.morte}</p>}
+                    <BirthDiv>
+                        <p className={"text-lg"}>Nascimento: {data?.actorData.nascimento}</p>
+                        <p className={"text-lg"}>Local de nascimento: {data?.actorData.local_nascimento}</p>
+                        {data?.actorData.morte && data.actorData.morte != '01/01/0001' && <p>Morte: {data.actorData.morte}</p>}
+                    </BirthDiv>
                     <ActorBiography>
                         <h2 className={"text-center"}>Biografia</h2>
                         <p>{data?.actorData.biografia}</p>

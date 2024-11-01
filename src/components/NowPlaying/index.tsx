@@ -1,16 +1,19 @@
 import { Navigation, Pagination } from "swiper/modules"
 import { StyledMoviePoster, StyledMovieTitleDiv, StyledSwiper, StyledSwiperSlide } from "./styles"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import axios from "axios";
 import { NowPlayingInterface } from "../../Interfaces/NowPlayingInterface";
+import { MyContext } from "../../MyContext";
 
 const NowPlaying = () => {
     const [nowPlayingData, setNowPlayingData] = useState<NowPlayingInterface[]>([]);
 
+    const { defaultOfficialUrl } = useContext(MyContext);
+
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://127.0.0.1:8000/api/nos-cinemas");
+                const response = await axios.get(`${defaultOfficialUrl}/api/nos-cinemas`);
                 if (response.status == 200) {
                     setNowPlayingData(response.data);
                 }

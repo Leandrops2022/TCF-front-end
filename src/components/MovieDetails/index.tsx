@@ -13,7 +13,7 @@ import LoadingIndicator from "../LoadingIndicator";
 
 const MovieDetails = () => {
 
-    const { data, loading, error } = useFetchUrl('filme');
+    const { data, loading, error } = useFetchUrl('filmes');
 
     window.scrollTo(0, 0);
 

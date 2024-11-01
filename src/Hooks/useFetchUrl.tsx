@@ -9,12 +9,12 @@ const useFetchUrl = (path: string) => {
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
-    const { defaultUrl } = useContext(MyContext);
+    const { defaultOfficialUrl } = useContext(MyContext);
 
     const { slug } = useParams();
 
 
-    const urlToFetch = slug ? `${defaultUrl}/${path}/${encodeURI(slug)}` : `${defaultUrl}/${path}`;
+    const urlToFetch = slug ? `${defaultOfficialUrl}/api/${path}/${encodeURI(slug)}` : `${defaultOfficialUrl}/api/${path}`;
     console.log(urlToFetch);
 
     useEffect(() => {

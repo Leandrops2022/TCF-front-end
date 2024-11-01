@@ -14,13 +14,13 @@ const ContentList = () => {
 
     const headerRef = useRef<HTMLDivElement>(null);
 
-    const { defaultUrl } = useContext(MyContext);
+    const { defaultOfficialUrl } = useContext(MyContext);
 
     const location = useLocation();
     const currentPath = location.pathname;
 
     const fetchData = (page: number) => {
-        const url = `${defaultUrl}${currentPath}?page=${page}`;
+        const url = `${defaultOfficialUrl}/api${currentPath}?page=${page}`;
 
         axios.get(url)
             .then(response => {

@@ -32,7 +32,7 @@ const HighLightsComponent = ({ highlights, cardsQuantity, gridConfig = { columns
                             </HighlightTag>}
                             <HilightCover src={element.capa ?
                                 `${defaultOfficialUrl}/public/${element.capa}`
-                                : `${defaultOfficialUrl}/public/${element.imagem}`} alt={element.alt_capa} style={{ width: '300px', borderRadius: '8px' }} />
+                                : `${defaultOfficialUrl}/public/${element.imagem}`} alt={element.alt_capa} />
                             <HilightLegendDiv>
                                 <HilightLegendText>
                                     {element.titulo}

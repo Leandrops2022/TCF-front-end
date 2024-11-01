@@ -60,6 +60,10 @@ export const ActorInfoDiv = styled.div`
     } 
 `;
 
+export const BirthDiv = styled.div`
+    padding:1rem;
+`;
+
 export const ActorBiography = styled.div`
     padding:1rem;
 `;

@@ -23,6 +23,9 @@ export const StyledDialogBox = styled.div`
     gap: 2rem;
     position:relative;
     border: 1px solid silver;
+    @media screen and (max-width: 1000px){
+        width:95%;
+    }
    
 `
 export const ConfirmationButtonsDiv = styled.div`
