@@ -3,11 +3,11 @@ import { CardsHoldingContainer, PaginationDiv } from "./styles";
 import { CompactMovieDataInterface } from "../../Interfaces/CompactMovieDataInterface";
 import { PaginationDataInterface } from "../../Interfaces/PaginationDataInterface";
 import axios from "axios";
-import SkeletonMovieCard from "../BestMoviesOfLastYear/components/SkeletonMovieCard";
 import MovieCard from "../MovieCard";
 import Pagination from "../Pagination";
 import { MyContext } from "../../MyContext";
 import { useParams } from "react-router-dom";
+import SkeletonMovieCard from "../SkelletonMovieCard/SkeletonMovieCard";
 
 
 const MovieCardsAndPagination: React.FC<MovieCardsAndPaginationInterface> = ({ path, content }) => {
@@ -23,6 +23,7 @@ const MovieCardsAndPagination: React.FC<MovieCardsAndPaginationInterface> = ({ p
 
     const fetchMovies = (page: number) => {
         const url = path ? `${defaultOfficialUrl}/api/${path}/${slug}?page=${page}` : `${defaultOfficialUrl}/api/${slug}?page=${page}`;
+        console.log(`url daqui: ${url}`);
 
         axios.get(url)
             .then(response => {

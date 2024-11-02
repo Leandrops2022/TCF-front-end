@@ -20,29 +20,34 @@ const HighLightsComponent = ({ highlights, cardsQuantity, gridConfig = { columns
                 (Array(cardsQuantity).fill(cardsQuantity).map((_, index) => (
                     <SkeletonItem key={index} />
                 )))
-                : (highlights.map((element, index) => (
-                    <StyledLink to={`/${element.rota}s/${encodeURIComponent(element.slug)}`} key={index} onClick={() => {
-                        window.scrollTo({ top: 0, behavior: 'instant' });
-                    }}>
-                        <HilightItem >
-                            {element.tag && <HighlightTag>
-                                <HighlightTagText>
-                                    {element.tag}
-                                </HighlightTagText>
-                            </HighlightTag>}
-                            <HilightCover src={element.capa ?
-                                `${defaultOfficialUrl}/public/${element.capa}`
-                                : `${defaultOfficialUrl}/public/${element.imagem}`} alt={element.alt_capa} />
-                            <HilightLegendDiv>
-                                <HilightLegendText>
-                                    {element.titulo}
-                                </HilightLegendText>
-                            </HilightLegendDiv>
-                        </HilightItem>
-                        {element.texto && <SummaryDiv dangerouslySetInnerHTML={{ __html: `${element.texto}...` }}>
-                        </SummaryDiv>}
-                    </StyledLink>
-                )))
+                : (highlights.map((element, index) => {
+                    console.log(`${defaultOfficialUrl}/public/${element.capa}`)
+                    return (
+
+                        <StyledLink to={`/${element.rota}s/${encodeURIComponent(element.slug)}`} key={index} onClick={() => {
+                            window.scrollTo({ top: 0, behavior: 'instant' });
+                        }}>
+                            <HilightItem >
+                                {element.tag && <HighlightTag>
+                                    <HighlightTagText>
+                                        {element.tag}
+                                    </HighlightTagText>
+                                </HighlightTag>}
+
+                                <HilightCover src={element.capa ?
+                                    `${defaultOfficialUrl}/public/${element.capa}`
+                                    : `${defaultOfficialUrl}/public/${element.imagem}`} alt={element.alt_capa} />
+                                <HilightLegendDiv>
+                                    <HilightLegendText>
+                                        {element.titulo}
+                                    </HilightLegendText>
+                                </HilightLegendDiv>
+                            </HilightItem>
+                            {element.texto && <SummaryDiv dangerouslySetInnerHTML={{ __html: `${element.texto}...` }}>
+                            </SummaryDiv>}
+                        </StyledLink>
+                    )
+                }))
             }
         </HighlightMainDiv>
     );

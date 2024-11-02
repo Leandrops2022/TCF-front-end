@@ -32,10 +32,10 @@ const Home = () => {
                     />
                 </StyledLink>
 
-                <StyledLink to={'/melhores-filmes-do-ano-passado'}>
+                <StyledLink to={'/top100s/anopassado'}>
                     <SectionCard
-                        imgUrl={'https://top100filmes.com.br/assets/melhores-do-ano/capaMelhores2023-2.webp'}
-                        imgAlt={"Foto com um troféu e vários elementos de festa ao redo"}
+                        imgUrl={'https://tcfofficial.com/assets/melhores-do-ano/capaMelhores2023-2.webp'}
+                        imgAlt={"Foto com um troféu e vários elementos de festa ao redor"}
                         legend={"Confira nossa lista de Melhores filmes de 2023!!!"}
                     />
                 </StyledLink>

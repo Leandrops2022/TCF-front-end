@@ -8,7 +8,6 @@ import MyContextProvider from "./MyContextProvider";
 import { ContainerDiv, MainContentDiv } from "./styles";
 import Article from "./components/Article";
 import OscarWinners from "./components/OscarWinners";
-import BestMoviesOfLastYear from "./components/BestMoviesOfLastYear";
 import { ActorDetails } from "./components/ActorDetails";
 import MovieDetails from "./components/MovieDetails";
 import { Minilist } from "./components/Minilist";
@@ -35,7 +34,6 @@ const MyRouter = (): React.JSX.Element => {
                             <Route path='/' element={<Main />}>
                                 <Route index element={<Home />} />
                                 <Route path="/ganhadores-oscar-2024" element={<OscarWinners />} />
-                                <Route path="/:slug" element={<BestMoviesOfLastYear />} />
 
                                 <Route path="/filmes/:slug" element={<MovieDetails />} />
                                 <Route path="/atores/:slug" element={<ActorDetails />} />

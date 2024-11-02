@@ -16,7 +16,7 @@ interface MenuProps {
 
 export const menu: MenuProps[] = [
     { 'route': 'Home', 'link': '/', 'icon': homeIcon },
-    { 'route': 'Melhores de 2023', 'link': 'melhores-filmes-do-ano-passado', 'icon': bestOf2023Icon },
+    { 'route': 'Melhores de 2023', 'link': 'top100s/anopassado', 'icon': bestOf2023Icon },
     { 'route': 'Melhores de todos tempos', 'link': 'top100s/geral', 'icon': top100Icon },
     { 'route': 'Top100s', 'link': 'top100s', 'icon': otherTop10 },
     { 'route': 'Listas', 'link': 'minilistas', 'icon': listsIcon },

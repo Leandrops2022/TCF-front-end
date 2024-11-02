@@ -26,6 +26,7 @@ const Top100 = () => {
         fetchData();
     }, [top100Name]);
 
+    console.log(`${defaultOfficialUrl}/${top100Intro?.imagem_capa}`);
     return (<StyledTop100Div>
         {top100Intro && <div>
             <img className={'m-auto'} src={`${defaultOfficialUrl}/${top100Intro.imagem_capa}`} alt={top100Intro.alt_capa} />
