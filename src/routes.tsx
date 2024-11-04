@@ -16,6 +16,7 @@ import Disclaimer from "./components/Disclaimer";
 import CookieDisclaimer from "./components/CookieAgreement";
 import ContentList from "./components/ContentList";
 import Searchresults from "./components/SearchResults";
+import PolicyAndContitions from "./components/PolicyAndContitions";
 
 const MyRouter = (): React.JSX.Element => {
     return (
@@ -52,6 +53,10 @@ const MyRouter = (): React.JSX.Element => {
                                 <Route path="/noticias" element={<ContentList />} />
 
                                 <Route path="/busca/:slug" element={<Searchresults />} />
+
+                                <Route path="/policy" element={<PolicyAndContitions />} />
+                                <Route path="/terms" element={<PolicyAndContitions />} />
+
 
                             </Route>
                         </Routes>

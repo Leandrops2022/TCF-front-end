@@ -7,6 +7,7 @@ import Iframe from "../Iframe";
 const ContentContainer: React.FC<{ data: Record<string, any> }> = ({ data }) => {
     const { defaultOfficialUrl } = useContext(MyContext);
 
+    console.log(`${defaultOfficialUrl}/${data.imgSrc}`);
     return <MainContainer>
         <CoverDiv>
             <CoverImg src={`${defaultOfficialUrl}/${data.imgSrc}`} alt={data.imgAlt} />

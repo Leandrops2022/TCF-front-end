@@ -1,5 +1,6 @@
 import React from "react";
 import { LegalLinks, MainContainer, MainContentDiv, StyledP, StyledSpan, StyledUl } from "./styles";
+import { Link } from "react-router-dom";
 
 const Footer: React.FC = () => {
 
@@ -8,17 +9,17 @@ const Footer: React.FC = () => {
             <StyledUl>
 
                 <li>
-                    <a target="_blank" href="http://127.0.0.1:8000/policy" role="button"
+                    <Link to={"/policy"}
                         id="politica-privacidade">
                         <div>Política de privacidade</div>
-                    </a>
+                    </Link>
                 </li>
 
                 <li>
-                    <a target="_blank" href="http://127.0.0.1:8000/terms" role="button"
+                    <Link to={"/terms"}
                         id="condicoes-de-uso">
                         <div>Condições de uso</div>
-                    </a>
+                    </Link>
                 </li>
 
 
