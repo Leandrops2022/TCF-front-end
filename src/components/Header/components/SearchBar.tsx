@@ -15,7 +15,7 @@ const SearchBar = () => {
     const abortControllersRef = useRef<AbortController[]>([]);
     const lastSentQueryRef = useRef<string | null>(null);
 
-    const { defaultUrl } = useContext(MyContext);
+    const { defaultOfficialUrl } = useContext(MyContext);
     const navigate = useNavigate();
 
     const handleSearchClick = () => {
@@ -32,7 +32,7 @@ const SearchBar = () => {
 
         dispatch(fetchSuggestionsStart());
 
-        axios.post(`${defaultUrl}/auto-complete`, {
+        axios.post(`${defaultOfficialUrl}/auto-complete`, {
             textQuery: textQuery
         }, { signal: abortController.signal })
             .then(response => {
