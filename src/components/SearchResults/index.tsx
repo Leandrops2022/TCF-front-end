@@ -14,13 +14,15 @@ const Searchresults = () => {
 
     const [data, setData] = useState<SearchResultInterface[]>();
     const [loading, setLoading] = useState<boolean>(true);
-    const { defaultUrl } = useContext(MyContext);
+    const { defaultOfficialUrl } = useContext(MyContext);
 
     const params = useParams();
 
     const fetchData = async (page: number) => {
         try {
-            const response = await axios.get(`${defaultUrl}/busca/${params.slug}?page=${page}`);
+            const url = `${defaultOfficialUrl}/api/busca/${params.slug}?page=${page}`;
+
+            const response = await axios.get(url);
             setData(response.data.data);
             setPaginationData(response.data.pagination);
             setLoading(false);
@@ -46,49 +48,6 @@ const Searchresults = () => {
 
     };
 
-    // const ReturnComponent: React.FC = () => {
-    //     if (loading) {
-    //         return (<LoadingIndicator />);
-    //     }
-
-    //     return <MainSearchResultsDiv>
-    //         <h1>Resultados da busca: </h1>
-    //         <StyledUL>
-    //             {data && data.length > 0 && data.map((result: SearchResultInterface, index: number) => {
-    //                 return <StyledLink to={`/${result.rota}/${encodeURI(result.slug)}`} key={index}>
-    //                     <StyledLi >
-    //                         <ImageDiv>
-    //                             <StyledImage src={result.imagem} alt="" />
-    //                         </ImageDiv>
-    //                         <ResultContentDiv>
-    //                             <p>{result.nome}</p>
-    //                             <p>({result.data})</p>
-    //                             <TagDiv>{result.tag}</TagDiv>
-    //                         </ResultContentDiv>
-    //                     </StyledLi>
-    //                 </StyledLink>
-    //             })}
-    //         </StyledUL>
-
-    //         <StyledStack spacing={2} >
-    //             <StyledPagination
-    //                 count={paginationData.last_page}
-    //                 page={paginationData.current_page}
-    //                 onChange={handlePageChange}
-    //                 shape="rounded"
-    //                 color={'primary'}
-    //                 sx={{
-    //                     '& .MuiPaginationItem-root': {
-    //                         color: 'silver',
-    //                     },
-    //                     '& .MuiPaginationItem-ellipsis': {
-    //                         color: 'silver',
-    //                     },
-    //                 }}
-    //             />
-    //         </StyledStack>
-    //     </MainSearchResultsDiv>
-    // }
 
     return <ResultsList data={data} loading={loading} paginationData={paginationData} onPageChange={handlePageChange} />
 

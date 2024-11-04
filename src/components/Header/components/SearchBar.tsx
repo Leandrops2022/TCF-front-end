@@ -31,8 +31,9 @@ const SearchBar = () => {
 
 
         dispatch(fetchSuggestionsStart());
+        const urlToFetch = `${defaultOfficialUrl}/api/auto-complete`;
 
-        axios.post(`${defaultOfficialUrl}/auto-complete`, {
+        axios.post(urlToFetch, {
             textQuery: textQuery
         }, { signal: abortController.signal })
             .then(response => {
