@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { SearchResultInterface } from "../../Interfaces/SearchResultInterface";
 import { useContext, useEffect, useState } from "react";
 import { MyContext } from "../../MyContext";
@@ -17,6 +17,13 @@ const Searchresults = () => {
     const { defaultOfficialUrl } = useContext(MyContext);
 
     const params = useParams();
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const getCurrentPageFromUrl = () => {
+        const queryParams = new URLSearchParams(location.search);
+        return parseInt(queryParams.get("page") || "1", 10);
+    };
 
     const fetchData = async (page: number) => {
         try {
@@ -33,9 +40,11 @@ const Searchresults = () => {
     }
 
     useEffect(() => {
+        const initialPage = getCurrentPageFromUrl();
         setLoading(true);
 
-        fetchData(1);
+        fetchData(initialPage);
+
 
     }, [params.slug]);
 
@@ -44,6 +53,8 @@ const Searchresults = () => {
         scrollTo(0, 0);
         setLoading(true);
         setPaginationData((prev) => ({ ...prev, current_page: value }));
+
+        navigate(`?page=${value}`);
         fetchData(value);
 
     };

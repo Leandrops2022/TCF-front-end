@@ -6,7 +6,7 @@ import axios from "axios";
 import MovieCard from "../MovieCard";
 import Pagination from "../Pagination";
 import { MyContext } from "../../MyContext";
-import { useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import SkeletonMovieCard from "../SkelletonMovieCard/SkeletonMovieCard";
 
 
@@ -21,9 +21,16 @@ const MovieCardsAndPagination: React.FC<MovieCardsAndPaginationInterface> = ({ p
     const skeletonArray = Array.from({ length: 10 });
     const cardsContainerRef = useRef<HTMLDivElement>(null);
 
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const getCurrentPageFromUrl = () => {
+        const queryParams = new URLSearchParams(location.search);
+        return parseInt(queryParams.get("page") || "1", 10);
+    };
+
     const fetchMovies = (page: number) => {
         const url = path ? `${defaultOfficialUrl}/api/${path}/${slug}?page=${page}` : `${defaultOfficialUrl}/api/${slug}?page=${page}`;
-        console.log(`url daqui: ${url}`);
 
         axios.get(url)
             .then(response => {
@@ -45,7 +52,7 @@ const MovieCardsAndPagination: React.FC<MovieCardsAndPaginationInterface> = ({ p
 
     useEffect(() => {
         if (!content) {
-            fetchMovies(currentPage);
+            fetchMovies(getCurrentPageFromUrl());
         } else {
             setMovielist(content);
             setIsloading(false);
@@ -69,6 +76,8 @@ const MovieCardsAndPagination: React.FC<MovieCardsAndPaginationInterface> = ({ p
                     lastPage={paginationData.last_page}
                     onPageChange={(page) => {
                         setIsloading(true);
+                        navigate(`?page=${page}`);
+
                         if (cardsContainerRef.current) {
                             cardsContainerRef.current.scrollIntoView({ behavior: 'instant' });
 

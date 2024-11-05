@@ -26,12 +26,13 @@ const Top100 = () => {
         fetchData();
     }, [top100Name]);
 
-    console.log(`${defaultOfficialUrl}/${top100Intro?.imagem_capa}`);
     return (<StyledTop100Div>
         {top100Intro && <div>
             <img className={'m-auto'} src={`${defaultOfficialUrl}/${top100Intro.imagem_capa}`} alt={top100Intro.alt_capa} />
             <h1 className={'mt-10 mb-10'}>{top100Intro.h1}</h1>
             <h2>{top100Intro.h2}</h2>
+
+            {/* This has to use dangerously set html because the client saves the data from the articles using pure html, to keep styles and structure defined in the article creator */}
             <div className={'text-left mb-10 p-2'} dangerouslySetInnerHTML={{ __html: top100Intro.p }} />
         </div>
         }
