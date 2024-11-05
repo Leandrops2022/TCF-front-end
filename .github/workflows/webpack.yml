@@ -28,21 +28,12 @@ jobs:
     - name: Build
       run: npm run build
 
-    - name: Copy dist folder to temporary location
-      run: cp -r dist ../dist-temp
-
-    - name: Switch to build branch and clean up
+    - name: Commit and push to build branch
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git checkout -b build
-        rm -rf *  # Remove existing files to avoid conflicts
-
-    - name: Move files to build branch root
-      run: |
-        cp -r ../dist-temp/* .  # Copy from the temporary location to root
-        rm -rf ../dist-temp      # Remove the temporary folder
-        git add .
+        git add -f build/  # Add the build folder explicitly
         git commit -m "Build output for deployment"
         git push origin build --force
       env:
