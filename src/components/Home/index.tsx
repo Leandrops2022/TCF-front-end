@@ -26,7 +26,7 @@ const Home = () => {
             <MidContentDiv>
                 <StyledLink to={'/ganhadores-oscar-2024'}>
                     <SectionCard
-                        imgUrl={'https://top100filmes.com.br/assets/indicados-oscar-2024/oscars.webp'}
+                        imgUrl={'https://tcfofficial.com/assets/indicados-oscar-2024/oscars.webp'}
                         imgAlt={"vários oscars enfileirados em um pedestal"}
                         legend={"Veja quais foram os ganhadores do Oscar 2024!!!"}
                     />
