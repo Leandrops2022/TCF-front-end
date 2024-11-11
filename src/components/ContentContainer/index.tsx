@@ -10,7 +10,7 @@ const ContentContainer: React.FC<{ data: Record<string, any> }> = ({ data }) => 
     console.log(`${defaultOfficialUrl}/${data.imgSrc}`);
     return <MainContainer>
         <CoverDiv>
-            <CoverImg src={`${defaultOfficialUrl}/${data.imgSrc}`} alt={data.imgAlt} />
+            <CoverImg src={`${defaultOfficialUrl}/public/${data.imgSrc}`} alt={data.imgAlt} />
         </CoverDiv>
 
         <TextContentDiv>
