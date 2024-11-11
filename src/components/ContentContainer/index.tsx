@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { CoverDiv, CoverImg, MainContainer, TextContentDiv, Title } from "./styles"
+import { CoverDiv, CoverImg, MainContainer, MainContentDiv, TextContentDiv, Title } from "./styles"
 import { MyContext } from "../../MyContext"
 import Iframe from "../Iframe";
 
@@ -7,7 +7,6 @@ import Iframe from "../Iframe";
 const ContentContainer: React.FC<{ data: Record<string, any> }> = ({ data }) => {
     const { defaultOfficialUrl } = useContext(MyContext);
 
-    console.log(`${defaultOfficialUrl}/${data.imgSrc}`);
     return <MainContainer>
         <CoverDiv>
             <CoverImg src={`${defaultOfficialUrl}/public/${data.imgSrc}`} alt={data.imgAlt} />
@@ -18,7 +17,7 @@ const ContentContainer: React.FC<{ data: Record<string, any> }> = ({ data }) => 
             {data.created_at && <span className={"text-xs"}>Por redação em {data.created_at}</span>}
             <br /><br />
 
-            <div dangerouslySetInnerHTML={{ __html: data.content }} />
+            <MainContentDiv dangerouslySetInnerHTML={{ __html: data.content }} />
         </TextContentDiv>
         {data?.trailer && <Iframe src={data.trailer} />}
 

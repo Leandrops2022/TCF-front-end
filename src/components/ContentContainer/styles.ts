@@ -39,3 +39,10 @@ export const Title = styled.h1`
     padding-bottom:0;
     margin-bottom:0;
 `
+
+export const MainContentDiv = styled.div`
+    img {
+        width: 80% !important;
+        margin: 2rem 0;
+    }
+`;
