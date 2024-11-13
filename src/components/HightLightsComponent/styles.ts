@@ -124,6 +124,8 @@ export const SummaryDiv = styled.div`
   font-size: 0.9rem;
   padding: 0.8rem 0.5rem;
   text-align: left;
+  display:flex;
+  line-height:1.2rem;
 `;
 
 const pulseAnimation = keyframes`

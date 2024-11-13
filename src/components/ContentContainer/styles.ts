@@ -17,7 +17,7 @@ export const CoverDiv = styled.div`
 `;
 
 export const CoverImg = styled.img`
-width: 100%;
+    width: 100%;
 `
 export const TextContentDiv = styled.div`
     margin: 2rem 0;
@@ -25,10 +25,34 @@ export const TextContentDiv = styled.div`
     margin:0;
     margin-bottom: 3rem;
     box-sizing:border-box;
-    padding-right: 0%.5;
+    padding-right: 0.5rem;
+
+    h1{
+        font-size:1.8rem;
+    }
+
+    iframe {
+        width: 50% !important;
+        align-self: center;
+        justify-self:center;
+    }
+
     @media screen and (max-width: 900px) {
         padding-right: 0;
         width:98%;
+        font-size:1.1rem;
+
+        iframe {
+            width: 100% !important;
+        }
+        p{
+            line-height: 1.3rem;
+        }
+
+        h3 {
+            margin: 1.5rem 0;
+            font-size: 1.3rem;
+        }
 
     }
 `;
@@ -41,8 +65,27 @@ export const Title = styled.h1`
 `
 
 export const MainContentDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    
+    figure {
+        justify-self: center;
+        width:50%;
+    }
+
     img {
-        width: 80% !important;
+        width: 100% !important;
         margin: 2rem 0;
+    }
+
+    @media screen and (max-width: 900px) {
+        img {
+            width: 100% !important;
+            margin: 2rem 0;
+        }
+
+        figure {
+            width:100%;
+        }
     }
 `;
