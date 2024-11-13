@@ -45,10 +45,7 @@ export const TextContentDiv = styled.div`
         iframe {
             width: 100% !important;
         }
-        p{
-            line-height: 1.3rem;
-        }
-
+       
         h3 {
             margin: 1.5rem 0;
             font-size: 1.3rem;

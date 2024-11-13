@@ -33,14 +33,16 @@ export const GlobalStyles = createGlobalStyle`
   }
 
     body {
-        font-family: 'Roboto', sans-serif;
+        font-family: var(--font-family);
         color: var(--primary-text-color);
+        font-weight: 100;
         background-color: var(--background-color);
     }
 
     p{
-      line-height:1.1rem;
+      line-height:1.5rem;
       padding: .3rem 0; 
+    
     }
 
     h1 {

@@ -25,7 +25,7 @@ const Disclaimer = () => {
             <ModalDiv>
                 <StyledDialogBox>
                     <h1 className={"text-center"}>Aviso!</h1>
-                    <span className={"text-center"}>O Site Top100Filmes pode conter conteúdo não apropriado para menores de 18 anos, confirme a sua idade: </span>
+                    <span className={"text-center"}>O Site TCFOfficial pode conter conteúdo não apropriado para menores de 18 anos, confirme a sua idade: </span>
                     <ConfirmationButtonsDiv >
 
                         <ConfirmationButton onClick={() => handleAgreement()}>Tenho 18 anos ou mais</ConfirmationButton>
