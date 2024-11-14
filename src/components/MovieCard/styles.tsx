@@ -12,7 +12,7 @@ export const MovieItem = styled.div`
   padding: 0;
   margin-bottom: 1.5rem;
   height: fit-content;
-  background-image: url('https://top100filmes.com.br/assets/imagens-mobile/cardFilmeUsarMaior.svg');
+  background-image: url('https://tcfofficial.com/server/public/assets/imagens-mobile/cardFilmeUsarMaior.svg');
   background-size: cover;
   background-repeat: no-repeat;
   background-color: rgba(80, 79, 79, 0.7);

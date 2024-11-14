@@ -120,7 +120,7 @@ export const HighlightTagText = styled.span`
 
 export const SummaryDiv = styled.div`
   border-radius: 5px;
-  width: 300px;
+  width: 100%;
   font-size: 0.9rem;
   padding: 0.8rem 0.5rem;
   text-align: left;

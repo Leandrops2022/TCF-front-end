@@ -1,5 +1,5 @@
 import { createGlobalStyle, keyframes } from "styled-components";
-import RobotoFont from "../../assets/fonts/Roboto/Roboto-Medium.ttf";
+import RobotoFont from "../../assets/fonts/Roboto/Roboto-Regular.ttf";
 
 export const GlobalStyles = createGlobalStyle`
     @font-face {

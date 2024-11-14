@@ -21,7 +21,6 @@ const ContentList = () => {
 
     const fetchData = (page: number) => {
         const url = `${defaultOfficialUrl}/api${currentPath}?page=${page}`;
-
         axios.get(url)
             .then(response => {
                 if (response.status === 200) {

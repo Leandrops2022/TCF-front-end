@@ -10,7 +10,6 @@ const HighLightsComponent = ({ highlights, cardsQuantity, gridConfig = { columns
     const { columns, rows } = gridConfig;
 
     const { defaultOfficialUrl } = useContext(MyContext);
-
     return (
         <HighlightMainDiv style={{
             '--columns': columns,
@@ -21,7 +20,7 @@ const HighLightsComponent = ({ highlights, cardsQuantity, gridConfig = { columns
                     <SkeletonItem key={index} />
                 )))
                 : (highlights.map((element, index) => {
-                    console.log(`${defaultOfficialUrl}/public/${element.capa}`)
+                    console.log(element.summary)
                     return (
 
                         <StyledLink to={`/${element.rota}s/${encodeURIComponent(element.slug)}`} key={index} onClick={() => {
@@ -43,7 +42,7 @@ const HighLightsComponent = ({ highlights, cardsQuantity, gridConfig = { columns
                                     </HilightLegendText>
                                 </HilightLegendDiv>
                             </HilightItem>
-                            {element.texto && <SummaryDiv dangerouslySetInnerHTML={{ __html: `${element.texto}...` }}>
+                            {element.summary && <SummaryDiv dangerouslySetInnerHTML={{ __html: `${element.summary}...` }}>
                             </SummaryDiv>}
                         </StyledLink>
                     )

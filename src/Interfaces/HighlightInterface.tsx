@@ -8,6 +8,7 @@ interface HilightInterface {
     titulo: string,
     imagem?: string,
     texto: string,
+    summary: string,
 
 }
 
