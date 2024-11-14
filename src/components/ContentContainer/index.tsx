@@ -14,7 +14,7 @@ const ContentContainer: React.FC<{ data: Record<string, any> }> = ({ data }) => 
 
         <TextContentDiv>
             <Title>{data.title}</Title>
-            {data.created_at && <span className={"text-xs"}>Por redação em {data.created_at}</span>}
+            <span className={"text-xs"}>Por redação </span>{data.created_at && <span className={"text-xs"}>em {data.created_at}</span>}
             <br /><br />
 
             <MainContentDiv dangerouslySetInnerHTML={{ __html: data.content }} />
