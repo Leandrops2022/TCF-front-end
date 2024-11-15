@@ -55,13 +55,9 @@ export const HilightItem = styled.div`
 `;
 
 export const HilightCover = styled.img`
-    height: 170px;  
-    object-fit: cover; 
+    width: 100%;
     border-radius: 8px; 
-    @media screen and (max-width: 1000px) {
-      width: 90vw;
-      height:200px;
-    }
+    
 `;
 
 export const HilightLegendDiv = styled.div`
