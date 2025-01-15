@@ -7,7 +7,6 @@ import NowPlaying from "../NowPlaying";
 
 const Home = () => {
     const { data } = useFetchUrl('home');
-
     let highlights: any = [];
 
     if (data && data.highlights) {
@@ -36,7 +35,7 @@ const Home = () => {
                     <SectionCard
                         imgUrl={'https://tcfofficial.com/assets/melhores-do-ano/capaMelhores2023-2.webp'}
                         imgAlt={"Foto com um troféu e vários elementos de festa ao redor"}
-                        legend={"Confira nossa lista de Melhores filmes de 2023!!!"}
+                        legend={"Confira nossa lista de Melhores filmes de 2024!!!"}
                     />
                 </StyledLink>
 

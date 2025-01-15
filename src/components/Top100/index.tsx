@@ -14,7 +14,6 @@ const Top100 = () => {
     const { defaultOfficialUrl } = useContext(MyContext);
 
     let top100Name = params.slug;
-
     useEffect(() => {
         const fetchData = async () => {
             const response = await axios.get(`${defaultOfficialUrl}/api/top100s/${top100Name}/texts`);

@@ -31,14 +31,15 @@ const MovieCardsAndPagination: React.FC<MovieCardsAndPaginationInterface> = ({ p
 
     const fetchMovies = (page: number) => {
         const url = path ? `${defaultOfficialUrl}/api/${path}/${slug}?page=${page}` : `${defaultOfficialUrl}/api/${slug}?page=${page}`;
-
         axios.get(url)
             .then(response => {
                 if (response.status === 200) {
-                    const { data, ...pagination } = response.data;
-                    setMovielist(data);
+
+                    const { data, ...pagination} = response.data;
+                    const dataValues:CompactMovieDataInterface[] = Object.values(data);
+                    setMovielist(dataValues.reverse());
                     setPaginationData(pagination);
-                    setCurrentPage(page);
+                    setCurrentPage(response.data.current_page);
                     setIsloading(false);
 
                 } else {
@@ -51,6 +52,7 @@ const MovieCardsAndPagination: React.FC<MovieCardsAndPaginationInterface> = ({ p
     };
 
     useEffect(() => {
+
         if (!content) {
             fetchMovies(getCurrentPageFromUrl());
         } else {
@@ -64,7 +66,7 @@ const MovieCardsAndPagination: React.FC<MovieCardsAndPaginationInterface> = ({ p
             {isLoading && skeletonArray.map((_element, index) => (
                 <SkeletonMovieCard key={index} />
             ))}
-            {!isLoading && movieList && movieList.map((movie, index) => (
+            {!isLoading && movieList.length > 5 && movieList.map((movie, index) => (
                 <MovieCard movie={movie} key={index} />
             ))}
         </CardsHoldingContainer>
